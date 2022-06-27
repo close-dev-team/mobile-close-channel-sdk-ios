@@ -42,7 +42,7 @@ When you've done that you can come back to this page to continue the wonderful j
 
 ## Step 1: Adding the SDK
 
-⛔️ The SDK is in a private repository https://github.com/close-dev-team/mobile-close-channel-sdk-ios repository. First contact [us](maurice@thecloseapp.com) to receive access to this repository.
+⛔️ The SDK is in a private repository: https://github.com/close-dev-team/mobile-close-channel-sdk-ios. Please first contact [us](maurice@thecloseapp.com) to receive access to this repository.
 
 To add the SDK to your project follow these steps:
 
@@ -53,7 +53,7 @@ To add the SDK to your project follow these steps:
 * In your Podfile add:
 
 * Run: `pod install`
-  
+
   </details>
 
 
