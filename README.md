@@ -1,6 +1,6 @@
 # Mobile Close Channel SDK
 
-The Mobile Close Channel SDK] allows you to integrate the Close communication platform in your own iOS app.
+The Mobile Close Channel SDK allows you to integrate the Close communication platform in your own iOS app.
 
 # ⚠️ NOTE: Documentation and SDK is Work in Progress, contact maurice@thecloseapp.com for help if needed ⚠️
 
@@ -60,12 +60,47 @@ To add the SDK to your project follow these steps:
 * Under *Scopes* make sure *Repo* is checked
 * Fill in a *Note* if you want and select *Generate token*
 
-#### Adding the repo
+#### Adding the Close framework
 Then add Close to your Podfile.
 
-* In your Podfile add:
+* In your Podfile add the Close CocoaPods specs repository:
 
-* Run: `pod install`
+```
+source 'https://github.com/close-dev-team/close-cocoapods-specs.git'
+```
+* Then add the Close Channel framework:
+
+```
+pod 'CloseChannel'
+```
+
+* Then run:
+
+`pod install --repo-update`
+
+* You are asked for your E-mail address and password. Make sure that you **enter the personal access token you created before as your password**
+* Then you can start using the CloseChannel framework in your code by simply importing it:
+
+```swift
+import CloseChannel
+```
+
+<details>
+<summary>Example of a minimal Podfile</summary>
+
+```
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/close-dev-team/close-cocoapods-specs.git'
+platform :ios, '12.0'
+
+target 'Close Channel Sample' do
+  use_frameworks!
+
+  pod 'CloseChannel'
+end
+```
+
+</details>
 
 ### Alternative: adding the framework manually
 You can also add the framework manually. Make sure you first clone the aforementioned repository. Then copy the framework into your project.
