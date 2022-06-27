@@ -13,7 +13,7 @@ Some of the features that are showcased:
 
 ## Documentation
 
-Details can be found on the GitHub page of the [Mobile Close Channel SDK](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios) and in the [SDK Reference documentation](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios/tree/main/doc/SDK%20Reference%20Documentation)
+Details can be found on the GitHub page of the [Mobile Close Channel SDK](../) and in the [SDK Reference documentation](../doc/SDK%20Reference%20Documentation)
 
 ## License
 
