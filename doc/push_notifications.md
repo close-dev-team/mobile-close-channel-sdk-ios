@@ -117,7 +117,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive respo
 
 ## Not using the CloseChannelNotification convenience class
 
-If you prefer not to use the CloseChannelNotification class and parse the push notification message yourself, check out [the 'Push notification payload` section in the reference documentation](./doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md)
+If you prefer not to use the CloseChannelNotification class and parse the push notification message yourself, check out [the 'Push notification payload` section in the reference documentation](./SDK%20Reference%20Documentation/classes/CloseChannelController.md)
 
 # Testing push notifications with Knuff
 
