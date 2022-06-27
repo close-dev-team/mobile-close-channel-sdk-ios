@@ -1,6 +1,6 @@
 # Mobile Close Channel SDK
 
-The Mobile Close Channel SDK allows you to integrate the Close communication platform in your own iOS app.
+The Mobile Close Channel SDK] allows you to integrate the Close communication platform in your own iOS app.
 
 # ⚠️ NOTE: Documentation and SDK is Work in Progress, contact maurice@thecloseapp.com for help if needed ⚠️
 
@@ -42,7 +42,24 @@ When you've done that you can come back to this page to continue the wonderful j
 
 ## Step 1: Adding the SDK
 
-To add the SDK to your project follow these steps
+⛔️ The SDK is in a private repository https://github.com/close-dev-team/mobile-close-channel-sdk-ios repository. First contact [us](maurice@thecloseapp.com) to receive access to this repository.
+
+To add the SDK to your project follow these steps:
+
+### Using Cocoapods
+<details>
+<summary>Click for instructions</summary>
+
+* In your Podfile add:
+
+* Run: `pod install`
+  
+  </details>
+
+
+### Manually adding the framework
+<details>
+<summary>Click for instructions</summary>
 
 * Copy the `Close Channel.xcframework` folder into the folder of your project
 * In the project settings of the target
@@ -51,6 +68,8 @@ To add the SDK to your project follow these steps
   * Be sure that *Embed & sign* is selected
 
   ![](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios/raw/main/doc/images/screenshot_add_framework.png)
+
+  </details>
 
 ## Step 2: Using the SDK
 

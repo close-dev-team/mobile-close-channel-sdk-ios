@@ -1,6 +1,6 @@
 # Mobile Close Channel SDK - Sample App
 
-This sample app shows the different features of the [Mobile Close Channel SDK](https://github.com/close-dev-team/mobile-close-channel-sdk-ios).
+This sample app shows the different features of the [Mobile Close Channel SDK](../README.MD).
 
 Some of the features that are showcased:
 
