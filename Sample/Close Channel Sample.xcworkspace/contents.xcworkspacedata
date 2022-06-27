@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/Maurice/git/close-mobile-channel-sdk-ios/Sample/Close Channel Sample.xcodeproj">
+      location = "group:./Close Channel Sample.xcodeproj">
    </FileRef>
 </Workspace>

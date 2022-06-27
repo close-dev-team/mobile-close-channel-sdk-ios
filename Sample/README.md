@@ -33,7 +33,7 @@ This means that you first have to register a user.
 
 Go to the *Options* tab and tap *Register user*
 
->This will do a [registerUser()](./doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md) call with the values you provide. If you leave the values empty, they will be sent as a *nil* value. Any errors are shown in a popup.
+>This will do a [registerUser()](../doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md) call with the values you provide. If you leave the values empty, they will be sent as a *nil* value. Any errors are shown in a popup.
 
 ## Adding a channel
 
