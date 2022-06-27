@@ -41,21 +41,21 @@ When the user is registered, a channel can be added. Go to the *Options* tab and
 
 💁‍♂️ Ask Close for other show codes.
 
->This will do an [addChannel()](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/blob/main/doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md) call with the value you provide. Any errors are shown in a popup.
+>This will do an [addChannel()](../doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md) call with the value you provide. Any errors are shown in a popup.
 
 ## Opening a channel
 
 In the *Options* tab and tap *Open latest channel (messages)* or *Open latest channel (info)* to open a the latest added channel in either of the views.
 
->This will do a [openChannelMessagesView(channelId: nil) or openChannelInfoView(channelId: nil)](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/blob/main/doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md) call. Any errors are shown in a popup.
+>This will do a [openChannelMessagesView(channelId: nil) or openChannelInfoView(channelId: nil)](../doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md) call. Any errors are shown in a popup.
 
 In the *Channels* tab you'll find an overview of all channels. This show how you use the information in the Channel object to build up a UITableView.
 
->The channels are retrieved via an [getChannels()](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/blob/main/doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md)
+>The channels are retrieved via an [getChannels()](../doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md)
 
 Tapping on it allows you to open it in one of the views.
 
->This will do a [openChannelMessagesView() or openChannelInfoView()](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/blob/main/doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md) call, with the channel ID of that channel.
+>This will do a [openChannelMessagesView() or openChannelInfoView()](../doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md) call, with the channel ID of that channel.
 
 ## Push notifications
 
@@ -63,4 +63,4 @@ The sample app show how to identify push notifications from Close and how to par
 
 ⚠️ Push notifications are not shown in the sample app when your are using the standard SDK test environment. Contact Close to setup a separate environment for testing push notifications.
 
-Detailed information on push notifications can be found [here](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/blob/main/doc/push_notifications.md)
+Detailed information on push notifications can be found [here](../doc/push_notifications.md)
