@@ -40,26 +40,38 @@ It is **strongly recommended** to first start with the [Mobile Close Channel SDK
 
 When you've done that you can come back to this page to continue the wonderful journey of integrating Close in your own app.
 
-## Step 1: Adding the SDK
+## Preparations
 
-⛔️ The SDK is in a private repository: https://github.com/close-dev-team/mobile-close-channel-sdk-ios. Please first contact [us](maurice@thecloseapp.com) to receive access to this repository.
+⛔️ The SDK is in a private repository: https://github.com/close-dev-team/mobile-close-channel-sdk-ios. Please first contact [us](maurice@thecloseapp.com) to receive access to this repository. Make sure you received and accepted the invite before you continue.
+
+## Step 1: Adding the SDK
 
 To add the SDK to your project follow these steps:
 
 ### Using Cocoapods
-<details>
-<summary>Click for instructions</summary>
+#### Access to the repo
+ℹ️ First make sure to create a personal access token in GitHub to be able to access the repository.
+
+* In GitHub, click or tap on your account
+* Select *Settings*
+* Select *Developer Settings* in the menu
+* Select *Personal access tokens*
+* Select *Generate new token*
+* Under *Scopes* make sure *Repo* is checked
+* Fill in a *Note* if you want and select *Generate token*
+
+#### Adding the repo
+Then add Close to your Podfile.
 
 * In your Podfile add:
 
 * Run: `pod install`
 
-  </details>
+### Alternative: adding the framework manually
+You can also add the framework manually. Make sure you first clone the aforementioned repository. Then copy the framework into your project.
 
-
-### Manually adding the framework
 <details>
-<summary>Click for instructions</summary>
+<summary>Show me how</summary>
 
 * Copy the `Close Channel.xcframework` folder into the folder of your project
 * In the project settings of the target

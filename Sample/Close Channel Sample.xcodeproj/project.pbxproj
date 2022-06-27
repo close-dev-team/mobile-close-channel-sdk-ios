@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		51247D772863095200DFA7E7 /* Close Channel.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51247D762863095200DFA7E7 /* Close Channel.xcframework */; };
-		51247D782863095200DFA7E7 /* Close Channel.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 51247D762863095200DFA7E7 /* Close Channel.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		791A2F58283CEDC40097456A /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791A2F57283CEDC40097456A /* OptionsViewController.swift */; };
 		799A7070283D0795001BF1BA /* CloseChannel-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 799A706F283D0795001BF1BA /* CloseChannel-Info.plist */; };
 		799A7073283E51DD001BF1BA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A7072283E51DD001BF1BA /* TabBarController.swift */; };
@@ -18,6 +16,7 @@
 		79DCBEE927EC56B900CFBA46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DCBEE727EC56B900CFBA46 /* Main.storyboard */; };
 		79DCBEEB27EC56BD00CFBA46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79DCBEEA27EC56BD00CFBA46 /* Assets.xcassets */; };
 		79DCBEEE27EC56BD00CFBA46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DCBEEC27EC56BD00CFBA46 /* LaunchScreen.storyboard */; };
+		F5484D93B6977CE07F8B7894 /* Pods_Close_Channel_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B6328CBECF5A27B3D7389A1 /* Pods_Close_Channel_Sample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +26,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				51247D782863095200DFA7E7 /* Close Channel.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,7 +33,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		51247D762863095200DFA7E7 /* Close Channel.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "Close Channel.xcframework"; path = "../Close Channel.xcframework"; sourceTree = "<group>"; };
 		791A2F57283CEDC40097456A /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		799A706F283D0795001BF1BA /* CloseChannel-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CloseChannel-Info.plist"; sourceTree = "<group>"; };
 		799A7071283E0FFC001BF1BA /* Close Channel Sample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Close Channel Sample.entitlements"; sourceTree = "<group>"; };
@@ -48,6 +45,9 @@
 		79DCBEEA27EC56BD00CFBA46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79DCBEED27EC56BD00CFBA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79DCBEEF27EC56BD00CFBA46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B6328CBECF5A27B3D7389A1 /* Pods_Close_Channel_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Close_Channel_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		877398BABEA9C5763AE57BE3 /* Pods-Close Channel Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Close Channel Sample.release.xcconfig"; path = "Target Support Files/Pods-Close Channel Sample/Pods-Close Channel Sample.release.xcconfig"; sourceTree = "<group>"; };
+		9D8EB3114379759578F47087 /* Pods-Close Channel Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Close Channel Sample.debug.xcconfig"; path = "Target Support Files/Pods-Close Channel Sample/Pods-Close Channel Sample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,19 +55,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51247D772863095200DFA7E7 /* Close Channel.xcframework in Frameworks */,
+				F5484D93B6977CE07F8B7894 /* Pods_Close_Channel_Sample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		277514550B893D4BA810DABC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D8EB3114379759578F47087 /* Pods-Close Channel Sample.debug.xcconfig */,
+				877398BABEA9C5763AE57BE3 /* Pods-Close Channel Sample.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		79DCBED527EC56B900CFBA46 = {
 			isa = PBXGroup;
 			children = (
 				79DCBEE027EC56B900CFBA46 /* Close Channel Sample */,
 				79DCBEDF27EC56B900CFBA46 /* Products */,
 				79DCBEF527EC5A5100CFBA46 /* Frameworks */,
+				277514550B893D4BA810DABC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,7 +110,7 @@
 		79DCBEF527EC5A5100CFBA46 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				51247D762863095200DFA7E7 /* Close Channel.xcframework */,
+				7B6328CBECF5A27B3D7389A1 /* Pods_Close_Channel_Sample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,10 +122,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79DCBEF227EC56BD00CFBA46 /* Build configuration list for PBXNativeTarget "Close Channel Sample" */;
 			buildPhases = (
+				8E8632A9CD704F401E501D74 /* [CP] Check Pods Manifest.lock */,
 				79DCBEDA27EC56B900CFBA46 /* Sources */,
 				79DCBEDB27EC56B900CFBA46 /* Frameworks */,
 				79DCBEDC27EC56B900CFBA46 /* Resources */,
 				79ECD387285B3A80007B2402 /* Embed Frameworks */,
+				119C82B813CDDB56CB33F17F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -172,6 +184,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		119C82B813CDDB56CB33F17F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Close Channel Sample/Pods-Close Channel Sample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Close Channel Sample/Pods-Close Channel Sample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Close Channel Sample/Pods-Close Channel Sample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E8632A9CD704F401E501D74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Close Channel Sample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		79DCBEDA27EC56B900CFBA46 /* Sources */ = {
@@ -328,6 +382,7 @@
 		};
 		79DCBEF327EC56BD00CFBA46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D8EB3114379759578F47087 /* Pods-Close Channel Sample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -361,6 +416,7 @@
 		};
 		79DCBEF427EC56BD00CFBA46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 877398BABEA9C5763AE57BE3 /* Pods-Close Channel Sample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
