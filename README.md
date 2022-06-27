@@ -50,7 +50,7 @@ To add the SDK to your project follow these steps
   * Tap *Add other* and browse to the framework and add it
   * Be sure that *Embed & sign* is selected
 
-  ![](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/images/screenshot_add_framework.png)
+  ![](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios/raw/main/doc/images/screenshot_add_framework.png)
 
 ## Step 2: Using the SDK
 
@@ -87,9 +87,9 @@ You can configure this by following these steps:
 </dict>
 ```
 
-  ![](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/images/screenshot_api_base_url.png)
+  ![](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios/raw/main/doc/images/screenshot_api_base_url.png)
 
-  A sample file can be found [here](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/samples/CloseChannel-Info.plist).
+  A sample file can be found [here](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios/raw/main/doc/samples/CloseChannel-Info.plist).
 </details>
 
 

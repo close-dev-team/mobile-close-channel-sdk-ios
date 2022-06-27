@@ -13,7 +13,7 @@ Some of the features that are showcased:
 
 ## Documentation
 
-Details can be found on the GitHub page of the [Mobile Close Channel SDK](https://github.com/close-dev-team/mobile-close-channel-sdk-ios) and in the [SDK Reference documentation](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/tree/main/doc/SDK%20Reference%20Documentation)
+Details can be found on the GitHub page of the [Mobile Close Channel SDK](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios) and in the [SDK Reference documentation](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios/tree/main/doc/SDK%20Reference%20Documentation)
 
 ## License
 
@@ -24,7 +24,7 @@ You can use the source code in this example in your own projects according to th
 ## Building the App
 You have to change the bundle id of the app before building it. The app at default communicates with a test environment.
 
-Please change the api_base_url as described [here](https://github.com/close-dev-team/mobile-close-channel-sdk-ios) into one you received from Close.
+Please change the api_base_url as described [here](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios) into one you received from Close.
 
 ## Registering a user
 The first time you start the app, you'll see a *Could not retreieve list of channels / API call failed - User not valid* message.
@@ -33,7 +33,7 @@ This means that you first have to register a user.
 
 Go to the *Options* tab and tap *Register user*
 
->This will do a [registerUser()](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/blob/main/doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md) call with the values you provide. If you leave the values empty, they will be sent as a *nil* value. Any errors are shown in a popup.
+>This will do a [registerUser()](./doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md) call with the values you provide. If you leave the values empty, they will be sent as a *nil* value. Any errors are shown in a popup.
 
 ## Adding a channel
 
