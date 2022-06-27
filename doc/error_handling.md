@@ -20,4 +20,4 @@ If you receive an internal SDK error it can mean there is something wrong in sce
 
 ## Other errors
 
-All errors that can be reported are explained [here](./doc/SDK%20Reference%20Documentation/enums/CloseChannelController.CloseChannelError.md)
+All errors that can be reported are explained [here](./SDK%20Reference%20Documentation/enums/CloseChannelController.CloseChannelError.md)
