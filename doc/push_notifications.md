@@ -117,7 +117,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive respo
 
 ## Not using the CloseChannelNotification convenience class
 
-If you prefer not to use the CloseChannelNotification class and parse the push notification message yourself, check out [the 'Push notification payload` section in the reference documentation](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/blob/main/doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md)
+If you prefer not to use the CloseChannelNotification class and parse the push notification message yourself, check out [the 'Push notification payload` section in the reference documentation](./doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md)
 
 # Testing push notifications with Knuff
 
@@ -144,6 +144,6 @@ Use a payload like below:
 }
 ```
 
-The keys are explained in [the 'Push notification payload` section in the reference documentation](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/blob/main/doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md)
+The keys are explained in [the 'Push notification payload` section in the reference documentation](./SDK%20Reference%20Documentation/classes/CloseChannelController.md)
 
 Tap on a channel in the sample app and select *Show channel ID* to find the `channelId`. When it's specified, tapping the push notification should open the Messages or Info view, depending on the value of `infoSpace`

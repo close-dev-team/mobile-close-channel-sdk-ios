@@ -5,7 +5,7 @@ Functions in the SDK that can fail have two closures.
 * success
 * failure
 
-These are respectively called when then call succeeded or failed. In case of failure a [CloseChannelError](./doc/SDK%20Reference%20Documentation/enums/CloseChannelController.CloseChannelError.md) object is passed which contains details of the error.
+These are respectively called when then call succeeded or failed. In case of failure a [CloseChannelError](./SDK%20Reference%20Documentation/enums/CloseChannelController.CloseChannelError.md) object is passed which contains details of the error.
 
 ## Retrying calls
 It is good practice to retry the calls in case of ApiCallFailed-errors like `ApiCallFailedServerUnreachable` or `ApiCallFailedServerError` error.
