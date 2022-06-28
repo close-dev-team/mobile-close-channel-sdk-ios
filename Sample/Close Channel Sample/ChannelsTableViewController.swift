@@ -11,6 +11,7 @@ import CloseChannel
 class ChannelsTableViewController: UITableViewController {
     let closeChannelController = CloseChannelController.sharedInstance
     var channels = [Channel]()
+    let activityIndicatorView = UIActivityIndicatorView()
 
     func addChannel(_ channel: Channel) {
         channels.append(channel)
@@ -21,19 +22,36 @@ class ChannelsTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        func completed() {
+            activityIndicatorView.stopAnimating()
+            activityIndicatorView.removeFromSuperview()
+        }
+
         super.viewWillAppear(animated)
 
         view.backgroundColor = .white
 
+        view.addSubview(activityIndicatorView)
+
+        if #available(iOS 13, *) {
+            activityIndicatorView.style = .large
+            activityIndicatorView.color = .black
+        } else {
+            activityIndicatorView.style = .whiteLarge
+            activityIndicatorView.color = .black
+        }
+
         closeChannelController.getChannels { [self] channels in
             self.channels = channels
             DispatchQueue.main.async {
+                completed()
                 self.tableView.reloadData()
             }
         } failure: { error in
             print("Error: could not get channels: \(error.message)")
 
             DispatchQueue.main.async {
+                completed()
                 var message = "\(error.message) [\(error.rawValue) - \(error.rawString)]"
                 if error.rawValue == 25103 {
                     message = "\(message)\n\nDid you forget to first register a user in the Options tab?"
