@@ -6,7 +6,9 @@
 
 - [Properties](#properties)
   - `sharedInstance`
+  - `version`
 - [Methods](#methods)
+  - `deinit`
   - `registerUser(uniqueId:nickname:success:failure:)`
   - `addChannel(closeCode:success:failure:)`
   - `getChannels(success:failure:)`
@@ -35,7 +37,19 @@ Returns a singleton instance of the controller
 Usage example:
     `let closeChannelController = CloseChannelController.sharedInstance`
 
+### `version`
+
+```swift
+public var version: String
+```
+
 ## Methods
+### `deinit`
+
+```swift
+deinit
+```
+
 ### `registerUser(uniqueId:nickname:success:failure:)`
 
 ```swift
@@ -149,9 +163,9 @@ Be sure to call this function on the main thread!
 
 ```swift
 public func registerPushInfo(token: String?,
-                      permissionGranted: Bool,
-                      success: @escaping (_ isPushEnabled: Bool) -> Void,
-                      failure: ((_ error: CloseChannelError) -> Void)?)
+                             permissionGranted: Bool,
+                             success: @escaping (_ isPushEnabled: Bool) -> Void,
+                             failure: ((_ error: CloseChannelError) -> Void)?)
 ```
 
 Registers or unregisters for receiving push notifications
