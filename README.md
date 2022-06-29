@@ -133,7 +133,7 @@ You can configure this by following these steps:
 ⚠️ For testing purposes you can use the url `https://api.sdk.closetest.nl:16443/`, but this should be replaced later with the URL that Close provides to your company.
 
 <details>
-  <summary>Samples</summary>
+  <summary>Sample</summary>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -157,13 +157,25 @@ You can configure this by following these steps:
 When the SDK is correctly set up we can continue connecting to the Close platform. This starts with registering a user on our platform.
 
 ```swift
-let appUser = YourUserProvider.appUser()
-closeChannelController.registerUser(uniqueId: appUser.id,
-                                    nickname: appUser.name) { closeUserId in
-    // The returned closeUserId is a unique identifier that Close uses to identify users. You can store
-    // it for later use.
-} failure: { error in
-    print("Failed to register user: \(error.code) \(error.message)")
+class YourUserProvider {
+    static func appUser() -> AppUser {
+        return AppUser()
+    }
+}
+struct AppUser {
+    let id = "a_unique_id"
+    let name = "mieke"
+}
+
+class YourClass {
+  let appUser = YourUserProvider.appUser()
+  closeChannelController.registerUser(uniqueId: appUser.id,
+                                      nickname: appUser.name) { closeUserId in
+      // The returned closeUserId is a unique identifier that Close uses to identify users. You can store
+      // it for later use.
+  } failure: { error in
+      print("Failed to register user: \(error.code) \(error.message)")
+  }
 }
 ```
 
@@ -180,7 +192,7 @@ After the user is registered you only should add a channel.
 Please contact Close for the correct Close code for your app. For now you can use `SDKDEMO`
 
 ```swift
-closeChannelController.addChannel(closeCode: "DEMO") { channnel in
+closeChannelController.addChannel(closeCode: "SDKDEMO") { channnel in
     print("Channel succesfully added")
 
 } failure: { error in
