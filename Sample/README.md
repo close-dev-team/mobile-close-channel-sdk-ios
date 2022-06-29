@@ -65,11 +65,11 @@ When the user is registered, a channel can be added. Go to the *Options* tab and
 
 ## Opening a channel
 
-In the *Options* tab and tap *Open latest channel (messages)* or *Open latest channel (info)* to open a the latest added channel in either of the views.
+In the *Options* tab, tap *Open latest channel (messages)* or *Open latest channel (info)* to open a the latest added channel in either of the views.
 
 >This will do a [openChannelMessagesView(channelId: nil) or openChannelInfoView(channelId: nil)](../doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md) call. Any errors are shown in a popup.
 
-In the *Channels* tab you'll find an overview of all channels. This show how you use the information in the Channel object to build up a UITableView.
+In the *Channels* tab you'll find an overview of all channels. This shows how you use the information in the Channel object to build up a UITableView.
 
 >The channels are retrieved via an [getChannels()](../doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md)
 
@@ -79,7 +79,7 @@ Tapping on it allows you to open it in one of the views.
 
 ## Push notifications
 
-The sample app show how to identify push notifications from Close and how to parse and use the information in it. It also implements opening a channel after tapping a push notification.
+The sample app shows how to identify push notifications from Close and how to parse and use the information in it. It also implements opening a channel after tapping a push notification.
 
 ⚠️ Push notifications are not shown in the sample app when your are using the standard SDK test environment. Contact Close to setup a separate environment for testing push notifications.
 

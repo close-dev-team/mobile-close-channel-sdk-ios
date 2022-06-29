@@ -6,7 +6,7 @@ We need your push certificate to be able to send push notifications. Contact mau
 
 ## Registering
 
-To receive push notifications from Close you need to send the device id (aka device token ake push tokens). This can be done through a call to:
+To receive push notifications from Close you need to send the device id (aka device token aka push tokens). This can be done through a call to:
 
 ```swift
 registerPushInfo(token:permissionGranted:success:failure:)registerPushInfo(token:permissionGranted:success:failure:)
