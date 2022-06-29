@@ -11,7 +11,7 @@ If you still run into problems don't hesitate to contact me at maurice@theclosea
 
 ## Pre-requisites
 
-To make an easy start, be sure you have these tool versions:
+To make an easy start, be sure you have these versions:
 
 * Xcode 13.2.1
 
@@ -22,11 +22,9 @@ Newer versions could work / should work, but we have verified it to work with th
 ⚠️ The SDK supports iOS version 12.0 and higher, be sure the `iOS Deployment target` in the project settings of your app is set to 12.0 or higher.
 Both Arm and x86 processor architectures are supported, thus the SDK will also work in the simulator.
 
-The SDK is supplied as a dynamic library framework. All internal dependencies are statically linked. An overview of these dependencies can be found [here](./doc/internal_dependencies.md).
-
 ⚠️ iPads targets are not supported
 
-### Permissons
+### Permissions
 
 The SDK needs permissions to the camera and the photo album. Be sure to [add permission strings](./doc/permissions.md) for any of the permissions not already supported by your app.
 
