@@ -22,9 +22,11 @@ You can use the source code in this example in your own projects according to th
 # Using the App
 
 ## Access to the binary
-⛔️ The binary of the SDK framework is in a private repository: https://github.com/close-dev-team/mobile-close-channel-sdk-binary-ios. Please first contact [us](mailto:maurice@thecloseapp.com) to get access to this repository. Make sure you received and accepted the invite before you continue.
+---
 
-Then [use a Personal Access Token (PAT) on GitHub as explained here](../doc/binary_access.md) to clone the repository of the SDK framework binary. Use this token later when asked for a username and password for access to private repository.
+⛔️ IMPORTANT: The binary of the SDK framework is in a private repository. [Read this to see how to get access](../doc/binary_access.mds).
+
+---
 
 Start with cloning this repository:
 
