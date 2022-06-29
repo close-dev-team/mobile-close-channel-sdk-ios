@@ -22,7 +22,8 @@ Newer versions could work / should work, but we have verified it to work with th
 ⚠️ The SDK supports iOS version 12.0 and higher, be sure the `iOS Deployment target` in the project settings of your app is set to 12.0 or higher.
 Both Arm and x86 processor architectures are supported, thus the SDK will also work in the simulator.
 
-⚠️ iPads targets are not supported
+> ⚠️ iPad targets are not supported<br>
+  ⚠️ SwiftUI is not specifically supported
 
 ### Permissions
 
@@ -135,10 +136,14 @@ You can configure this by following these steps:
   <summary>Samples</summary>
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
 <dict>
 	<key>api_base_url</key>
 	<string>https://api.sdk.closetest.nl:16443/</string>
 </dict>
+</plist>
 ```
 
   ![](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/images/screenshot_api_base_url.png)
