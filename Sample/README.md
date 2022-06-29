@@ -57,7 +57,7 @@ Go to the *Options* tab and tap *Register user*
 
 ## Adding a channel
 
-When the user is registered, a channel can be added. Go to the *Options* tab and tap *Add channel*. Then type for example `DEMO` to add a channel.
+When the user is registered, a channel can be added. Go to the *Options* tab and tap *Add channel*. Then type for example `SDKDEMO` to add a channel.
 
 💁‍♂️ Ask Close for other show codes.
 

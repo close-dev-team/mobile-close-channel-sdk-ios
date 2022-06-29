@@ -172,7 +172,7 @@ The `YourUserProvider` class in this code snippet provides a way to get user dat
 ## Step 4: Adding a channel
 
 After the user is registered you only should add a channel.
-Please contact Close for the correct Close code for your app. For now you can use `DEMO`
+Please contact Close for the correct Close code for your app. For now you can use `SDKDEMO`
 
 ```swift
 closeChannelController.addChannel(closeCode: "DEMO") { channnel in
