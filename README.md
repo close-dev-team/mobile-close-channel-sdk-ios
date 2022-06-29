@@ -41,10 +41,10 @@ When you've done that you can come back to this page to continue the wonderful j
 To add the SDK to your project follow the steps in this section.
 
 ### Using Cocoapods
-#### Access to the binary
+#### Cloning the SDK framework binary
 ---
 
-⛔️ IMPORTANT: The binary of the SDK framework is in a private repository. [Read this to see how to get access](doc/binary_access.mds).
+⛔️ IMPORTANT: The SDK framework binary is in a private repository. [Read this to see how to get access](doc/binary_access.md).
 
 ---
 

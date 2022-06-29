@@ -24,7 +24,7 @@ You can use the source code in this example in your own projects according to th
 ## Access to the binary
 ---
 
-⛔️ IMPORTANT: The binary of the SDK framework is in a private repository. [Read this to see how to get access](../doc/binary_access.mds).
+⛔️ IMPORTANT: The binary of the SDK framework is in a private repository. [Read this to see how to get access](../doc/binary_access.md).
 
 ---
 
