@@ -179,6 +179,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     } failure: { error in
         print("Failed to register user: \(error.code) \(error.message)")
     }
+    return true
   }
 }
 ```
