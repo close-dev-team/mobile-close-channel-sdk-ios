@@ -38,7 +38,7 @@ When you've done that you can come back to this page to continue the wonderful j
 
 ## Preparations
 
-⛔️ The binary of the SDK framework is in a private repository: https://github.com/close-dev-team/mobile-close-channel-sdk-binary-ios. Please first contact [us](maurice@thecloseapp.com) to get access to this repository. Make sure you received and accepted the invite before you continue.
+⛔️ The binary of the SDK framework is in a private repository: https://github.com/close-dev-team/mobile-close-channel-sdk-binary-ios. Please first contact [us](mailto:maurice@thecloseapp.com) to get access to this repository. Make sure you received and accepted the invite before you continue.
 
 ## Step 1: Adding the SDK
 
