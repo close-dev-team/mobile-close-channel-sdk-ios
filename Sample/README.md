@@ -21,8 +21,15 @@ You can use the source code in this example in your own projects according to th
 
 # Using the App
 
+Start with cloning this repository:
+
+'''bash
+git clone https://github.com/close-dev-team/mobile-close-channel-sdk-ios.git
+cd mobile-close-channel-sdk-ios.git
+'''
+
 ## Building the App
-* From the commandline, in the folder where the Podfile is in, run:
+* Then run Cocoapods:
 
 ```bash
 pod install --repo-update
