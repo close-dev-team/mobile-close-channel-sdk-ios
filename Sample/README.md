@@ -23,10 +23,10 @@ You can use the source code in this example in your own projects according to th
 
 Start with cloning this repository:
 
-'''bash
+```bash
 git clone https://github.com/close-dev-team/mobile-close-channel-sdk-ios.git
 cd mobile-close-channel-sdk-ios.git
-'''
+```
 
 ## Building the App
 * Then run Cocoapods:
