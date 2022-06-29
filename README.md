@@ -114,7 +114,7 @@ The CloseChannelController instance is the one you're going to talk to. Let's fi
 ```swift
   import CloseChannel
 
-  class YourClass {
+  class AppDelegate: UIResponder, UIApplicationDelegate {
     let closeChannelController = CloseChannelController.sharedInstance
   }
 ```
@@ -167,14 +167,18 @@ struct AppUser {
     let name = "mieke"
 }
 
-class YourClass {
-  let appUser = YourUserProvider.appUser()
-  closeChannelController.registerUser(uniqueId: appUser.id,
-                                      nickname: appUser.name) { closeUserId in
-      // The returned closeUserId is a unique identifier that Close uses to identify users. You can store
-      // it for later use.
-  } failure: { error in
-      print("Failed to register user: \(error.code) \(error.message)")
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  let closeChannelController = CloseChannelController.sharedInstance
+
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    let appUser = YourUserProvider.appUser()
+    closeChannelController.registerUser(uniqueId: appUser.id,
+                                        nickname: appUser.name) { closeUserId in
+        // The returned closeUserId is a unique identifier that Close uses to identify users. You can store
+        // it for later use.
+    } failure: { error in
+        print("Failed to register user: \(error.code) \(error.message)")
+    }
   }
 }
 ```
