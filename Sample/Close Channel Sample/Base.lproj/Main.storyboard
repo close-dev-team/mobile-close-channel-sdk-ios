@@ -210,15 +210,26 @@
                                     <action selector="registerUserTapped" destination="9k0-NY-nzk" eventType="touchUpInside" id="DgT-WX-Jps"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by Close" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ui1-uF-xVj">
+                                <rect key="frame" x="0.0" y="751" width="414" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="waC-oh-6Wu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7ui-7i-7Eg"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="7ui-7i-7Eg" firstAttribute="bottom" secondItem="ui1-uF-xVj" secondAttribute="bottom" constant="20" id="1qK-65-wPm"/>
                             <constraint firstItem="7ui-7i-7Eg" firstAttribute="trailing" secondItem="7vR-Q9-kmk" secondAttribute="trailing" constant="20" id="4Fd-6s-ero"/>
                             <constraint firstItem="Dgb-Td-z77" firstAttribute="top" secondItem="MnS-Jo-4cG" secondAttribute="bottom" constant="28" id="4Ns-wZ-uCo"/>
                             <constraint firstItem="7fY-3g-VoT" firstAttribute="leading" secondItem="7ui-7i-7Eg" secondAttribute="leading" constant="20" id="6Yx-xl-iOV"/>
                             <constraint firstItem="7ui-7i-7Eg" firstAttribute="trailing" secondItem="MnS-Jo-4cG" secondAttribute="trailing" constant="20" id="DSC-XC-9Xi"/>
                             <constraint firstItem="7ui-7i-7Eg" firstAttribute="trailing" secondItem="7fY-3g-VoT" secondAttribute="trailing" constant="20" id="HxH-2q-lWk"/>
+                            <constraint firstItem="ui1-uF-xVj" firstAttribute="leading" secondItem="7ui-7i-7Eg" secondAttribute="leading" id="cb5-6L-G8p"/>
                             <constraint firstItem="MnS-Jo-4cG" firstAttribute="top" secondItem="7ui-7i-7Eg" secondAttribute="top" constant="135" id="dam-iy-Z4d"/>
                             <constraint firstItem="MnS-Jo-4cG" firstAttribute="leading" secondItem="7ui-7i-7Eg" secondAttribute="leading" constant="20" id="hOz-V5-hiY"/>
                             <constraint firstItem="Dgb-Td-z77" firstAttribute="leading" secondItem="7ui-7i-7Eg" secondAttribute="leading" constant="20" id="lS3-hq-hiB"/>
@@ -226,9 +237,13 @@
                             <constraint firstItem="7vR-Q9-kmk" firstAttribute="leading" secondItem="7ui-7i-7Eg" secondAttribute="leading" constant="20" id="tEM-IC-n2j"/>
                             <constraint firstItem="7ui-7i-7Eg" firstAttribute="trailing" secondItem="Dgb-Td-z77" secondAttribute="trailing" constant="20" id="uXT-kW-VJR"/>
                             <constraint firstItem="7fY-3g-VoT" firstAttribute="top" secondItem="7vR-Q9-kmk" secondAttribute="bottom" constant="-245" id="up1-VW-a3P"/>
+                            <constraint firstItem="7ui-7i-7Eg" firstAttribute="trailing" secondItem="ui1-uF-xVj" secondAttribute="trailing" id="vcR-yW-tpH"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Options" image="menucard" catalog="system" selectedImage="menucard" id="pJd-Ti-GZI"/>
+                    <connections>
+                        <outlet property="sdkVersionLabel" destination="ui1-uF-xVj" id="iBv-mB-kqq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7eL-cL-B5L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
