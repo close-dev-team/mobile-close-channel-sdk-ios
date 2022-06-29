@@ -35,6 +35,8 @@ git clone https://github.com/close-dev-team/mobile-close-channel-sdk-ios.git
 cd mobile-close-channel-sdk-ios.git
 ```
 
+>If you get a `Repository not found` error this means you [don't have access](../doc/binary_access.md) to the private repository where the SDK framework binary is in.
+
 ## Building the App
 * Then run Cocoapods:
 
@@ -42,7 +44,6 @@ cd mobile-close-channel-sdk-ios.git
 pod install --repo-update
 ```
 
-* Change the bundle id of the app before building it
 * The app at default will communicate with a test environment. Please change the api_base_url as described [here](https://github.com/close-dev-team/mobile-close-channel-sdk-ios) into one you received from Close.
 
 ## Registering a user
