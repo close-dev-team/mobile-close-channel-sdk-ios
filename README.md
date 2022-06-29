@@ -2,13 +2,11 @@
 
 The Mobile Close Channel SDK allows you to integrate the Close communication platform in your own iOS app.
 
-# ⚠️ NOTE: Documentation and SDK is Work in Progress, contact maurice@thecloseapp.com for help if needed ⚠️
-
 ## No buckles needed
 
 We are developers ourselves and we know how frustrating it can be to integrate an SDK. But not this time: we will do our best to make it a fun exercise instead! Pinky promise, this won't be an emotional roller coaster: buckles are not needed!
 
-So, take a coffee, tea, or havermelk and take my hand to guide you through this in a few easy steps.
+So, take a coffee ☕️, tea 🫖, or havermelk 🥛 and take my hand to guide you through this in a few easy steps.
 If you still run into problems don't hesitate to contact me at maurice@thecloseapp.com!
 
 ## Pre-requisites
@@ -42,11 +40,11 @@ When you've done that you can come back to this page to continue the wonderful j
 
 ## Preparations
 
-⛔️ The SDK is in a private repository: https://github.com/close-dev-team/mobile-close-channel-sdk-ios. Please first contact [us](maurice@thecloseapp.com) to receive access to this repository. Make sure you received and accepted the invite before you continue.
+⛔️ The binary of the SDK framework is in a private repository: https://github.com/close-dev-team/mobile-close-channel-sdk-binary-ios. Please first contact [us](maurice@thecloseapp.com) to get access to this repository. Make sure you received and accepted the invite before you continue.
 
 ## Step 1: Adding the SDK
 
-To add the SDK to your project follow these steps:
+To add the SDK to your project follow the steps in this section.
 
 ### Using Cocoapods
 #### Access to the repo
@@ -114,7 +112,7 @@ You can also add the framework manually. Make sure you first clone the aforement
   * Tap *Add other* and browse to the framework and add it
   * Be sure that *Embed & sign* is selected
 
-  ![](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios/raw/main/doc/images/screenshot_add_framework.png)
+  ![](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/images/screenshot_add_framework.png)
 
   </details>
 
@@ -153,9 +151,9 @@ You can configure this by following these steps:
 </dict>
 ```
 
-  ![](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios/raw/main/doc/images/screenshot_api_base_url.png)
+  ![](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/images/screenshot_api_base_url.png)
 
-  A sample file can be found [here](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios/raw/main/doc/samples/CloseChannel-Info.plist).
+  A sample file can be found [here](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/samples/CloseChannel-Info.plist).
 </details>
 
 
@@ -316,4 +314,8 @@ If you want to integrate with multiple channels and want to implement an overvie
 ## Problems and solutions
 
 When running into problems, please check out [this document](./doc/problems_and_solutions.md) first.
-When you encounter a bug, contact us or submit an issue. Note that references to CL-#### in commit messages refer to issues in our private issue tracker.
+
+* Report any issues found in the documentation or sample code [here](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/issues)
+* Report any issues found in the SDK [here](https://github.com/close-dev-team/mobile-close-channel-sdk-binary-ios/issues)
+
+Note that references to CL-#### in commit messages refer to issues in our private issue tracker.

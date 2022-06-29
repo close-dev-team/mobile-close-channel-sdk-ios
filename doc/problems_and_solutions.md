@@ -35,4 +35,4 @@ The solution is to increase the `iOS Deployment target` in the project setting o
 
 If the CloseChannel framework could not be loaded, please check to see if it has added correctly, and the *Embed* setting is set to *Embed & Sign*. With *Embed Without Signing* it would work when running in Debug or in the Simulator, but not when trying to create an archive.
 
-  ![](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios/raw/main/doc/images/screenshot_add_framework.png)
+  ![](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/images/screenshot_add_framework.png)

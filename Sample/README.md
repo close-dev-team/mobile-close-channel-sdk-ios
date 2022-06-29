@@ -27,7 +27,7 @@ You can use the source code in this example in your own projects according to th
 `pod install --repo-update`
 
 * Change the bundle id of the app before building it
-* The app at default will communicate with a test environment. Please change the api_base_url as described [here](https://github.com/close-dev-team/mobile-close-channel-sdk-documentation-ios) into one you received from Close.
+* The app at default will communicate with a test environment. Please change the api_base_url as described [here](https://github.com/close-dev-team/mobile-close-channel-sdk-ios) into one you received from Close.
 
 ## Registering a user
 The first time you start the app and open the Channels list, you'll see a *Could not retrieve list of channels / API call failed - User not valid* message.
