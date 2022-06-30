@@ -22,7 +22,8 @@ Newer versions could work / should work, but we have verified it to work with th
 ⚠️ The SDK supports iOS version 12.0 and higher, be sure the `iOS Deployment target` in the project settings of your app is set to 12.0 or higher.
 Both Arm and x86 processor architectures are supported, thus the SDK will also work in the simulator.
 
-⚠️ iPads targets are not supported
+> ⚠️ iPad targets are not supported<br>
+  ⚠️ SwiftUI is not specifically supported
 
 ### Permissions
 
@@ -36,28 +37,20 @@ It is **strongly recommended** to first start with the [Mobile Close Channel SDK
 
 When you've done that you can come back to this page to continue the wonderful journey of integrating Close in your own app.
 
-## Preparations
-
-⛔️ The binary of the SDK framework is in a private repository: https://github.com/close-dev-team/mobile-close-channel-sdk-binary-ios. Please first contact [us](mailto:maurice@thecloseapp.com) to get access to this repository. Make sure you received and accepted the invite before you continue.
-
 ## Step 1: Adding the SDK
 
 To add the SDK to your project follow the steps in this section.
 
 ### Using Cocoapods
-#### Access to the repo
-ℹ️ First make sure to create a personal access token in GitHub to be able to access the repository.
+#### Cloning the SDK framework binary
+---
 
-* In GitHub, click or tap on your account
-* Select *Settings*
-* Select *Developer Settings* in the menu
-* Select *Personal access tokens*
-* Select *Generate new token*
-* Under *Scopes* make sure *Repo* is checked
-* Fill in a *Note* if you want and select *Generate token*
+⛔️ IMPORTANT: The SDK framework binary is in a private repository. [Read this to see how to get access](doc/binary_access.md).
+
+---
 
 #### Adding the Close framework
-Then add Close to your Podfile.
+When you have arranged that, then add Close to your Podfile.
 
 * In your Podfile add the Close CocoaPods specs repository:
 
@@ -121,7 +114,7 @@ The CloseChannelController instance is the one you're going to talk to. Let's fi
 ```swift
   import CloseChannel
 
-  class YourClass {
+  class AppDelegate: UIResponder, UIApplicationDelegate {
     let closeChannelController = CloseChannelController.sharedInstance
   }
 ```
@@ -140,13 +133,17 @@ You can configure this by following these steps:
 ⚠️ For testing purposes you can use the url `https://api.sdk.closetest.nl:16443/`, but this should be replaced later with the URL that Close provides to your company.
 
 <details>
-  <summary>Samples</summary>
+  <summary>Sample</summary>
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
 <dict>
 	<key>api_base_url</key>
 	<string>https://api.sdk.closetest.nl:16443/</string>
 </dict>
+</plist>
 ```
 
   ![](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/images/screenshot_api_base_url.png)
@@ -160,13 +157,30 @@ You can configure this by following these steps:
 When the SDK is correctly set up we can continue connecting to the Close platform. This starts with registering a user on our platform.
 
 ```swift
-let appUser = YourUserProvider.appUser()
-closeChannelController.registerUser(uniqueId: appUser.id,
-                                    nickname: appUser.name) { closeUserId in
-    // The returned closeUserId is a unique identifier that Close uses to identify users. You can store
-    // it for later use.
-} failure: { error in
-    print("Failed to register user: \(error.code) \(error.message)")
+class YourUserProvider {
+    static func appUser() -> AppUser {
+        return AppUser()
+    }
+}
+struct AppUser {
+    let id = "a_unique_id"
+    let name = "mieke"
+}
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  let closeChannelController = CloseChannelController.sharedInstance
+
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    let appUser = YourUserProvider.appUser()
+    closeChannelController.registerUser(uniqueId: appUser.id,
+                                        nickname: appUser.name) { closeUserId in
+        // The returned closeUserId is a unique identifier that Close uses to identify users. You can store
+        // it for later use.
+    } failure: { error in
+        print("Failed to register user: \(error.code) \(error.message)")
+    }
+    return true
+  }
 }
 ```
 
@@ -180,7 +194,7 @@ The `YourUserProvider` class in this code snippet provides a way to get user dat
 ## Step 4: Adding a channel
 
 After the user is registered you only should add a channel.
-Please contact Close for the correct Close code for your app. For now you can use `DEMO`
+Please contact Close for the correct Close code for your app. For now you can use `SDKDEMO`
 
 ```swift
 closeChannelController.addChannel(closeCode: "SDKDEMO") { channnel in

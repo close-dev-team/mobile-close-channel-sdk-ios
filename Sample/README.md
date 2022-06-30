@@ -21,14 +21,29 @@ You can use the source code in this example in your own projects according to th
 
 # Using the App
 
+## Access to the binary
+---
+
+⛔️ IMPORTANT: The binary of the SDK framework is in a private repository. [Read this to see how to get access](../doc/binary_access.md).
+
+---
+
+Start with cloning this repository:
+
+```bash
+git clone https://github.com/close-dev-team/mobile-close-channel-sdk-ios.git
+cd mobile-close-channel-sdk-ios.git
+```
+
+>If you get a `Repository not found` error this means you [don't have access](../doc/binary_access.md) to the private repository where the SDK framework binary is in.
+
 ## Building the App
-* From the commandline, in the folder where the Podfile is in, run:
+* Then run Cocoapods:
 
 ```bash
 pod install --repo-update
 ```
 
-* Change the bundle id of the app before building it
 * The app at default will communicate with a test environment. Please change the api_base_url as described [here](https://github.com/close-dev-team/mobile-close-channel-sdk-ios) into one you received from Close.
 
 ## Registering a user
@@ -42,7 +57,7 @@ Go to the *Options* tab and tap *Register user*
 
 ## Adding a channel
 
-When the user is registered, a channel can be added. Go to the *Options* tab and tap *Add channel*. Then type for example `DEMO` to add a channel.
+When the user is registered, a channel can be added. Go to the *Options* tab and tap *Add channel*. Then type for example `SDKDEMO` to add a channel.
 
 💁‍♂️ Ask Close for other show codes.
 
@@ -50,11 +65,11 @@ When the user is registered, a channel can be added. Go to the *Options* tab and
 
 ## Opening a channel
 
-In the *Options* tab and tap *Open latest channel (messages)* or *Open latest channel (info)* to open a the latest added channel in either of the views.
+In the *Options* tab, tap *Open latest channel (messages)* or *Open latest channel (info)* to open a the latest added channel in either of the views.
 
 >This will do a [openChannelMessagesView(channelId: nil) or openChannelInfoView(channelId: nil)](../doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md) call. Any errors are shown in a popup.
 
-In the *Channels* tab you'll find an overview of all channels. This show how you use the information in the Channel object to build up a UITableView.
+In the *Channels* tab you'll find an overview of all channels. This shows how you use the information in the Channel object to build up a UITableView.
 
 >The channels are retrieved via an [getChannels()](../doc/SDK%20Reference%20Documentation/classes/CloseChannelController.md)
 
@@ -64,7 +79,7 @@ Tapping on it allows you to open it in one of the views.
 
 ## Push notifications
 
-The sample app show how to identify push notifications from Close and how to parse and use the information in it. It also implements opening a channel after tapping a push notification.
+The sample app shows how to identify push notifications from Close and how to parse and use the information in it. It also implements opening a channel after tapping a push notification.
 
 ⚠️ Push notifications are not shown in the sample app when your are using the standard SDK test environment. Contact Close to setup a separate environment for testing push notifications.
 
