@@ -327,6 +327,9 @@ If you want to integrate with multiple channels and want to implement an overvie
 
 With the Close Builder you can create your own flows to send to your users. Use the account provided by Close to login and start building!
 
+![](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/images/builder.png)
+
+
 ## Problems and solutions
 
 When running into problems, please check out [this document](./doc/problems_and_solutions.md) first.
