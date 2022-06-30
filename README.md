@@ -183,7 +183,7 @@ After the user is registered you only should add a channel.
 Please contact Close for the correct Close code for your app. For now you can use `DEMO`
 
 ```swift
-closeChannelController.addChannel(closeCode: "DEMO") { channnel in
+closeChannelController.addChannel(closeCode: "SDKDEMO") { channnel in
     print("Channel succesfully added")
 
 } failure: { error in
@@ -252,7 +252,7 @@ let appUser = YourUserProvider.appUser()
 
             self.closeChannelController.getChannels { channels in
                 if channels.count == 0 {
-                    self.closeChannelController.addChannel(closeCode: "DEMO") { channnel in
+                    self.closeChannelController.addChannel(closeCode: "SDKDEMO") { channnel in
                         DispatchQueue.main.async {
                             self.closeChannelController.openChannelMessagesView()
                         }
