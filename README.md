@@ -9,7 +9,7 @@ We are developers ourselves and we know how frustrating it can be to integrate a
 So, take a coffee ☕️, tea 🫖, or havermelk 🥛 and take my hand to guide you through this in a few easy steps.
 If you still run into problems don't hesitate to contact me at maurice@thecloseapp.com!
 
-## Pre-requisites
+## Pre-requisites and notes
 
 To make an easy start, be sure you have these versions:
 
@@ -28,6 +28,10 @@ Both Arm and x86 processor architectures are supported, thus the SDK will also w
 ### Permissions
 
 The SDK needs permissions to the camera and the photo album. Be sure to [add permission strings](./doc/permissions.md) for any of the permissions not already supported by your app.
+
+### Localisation
+
+The SDK supports `en_GB`, `en_US`, `nl` and `de` localisations. Please note that to use these localisations your app also must support these. The default localisation is `en_GB`.
 
 # Quick start
 
