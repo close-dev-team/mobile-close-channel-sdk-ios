@@ -43,6 +43,12 @@ Usage example:
 public var version: String
 ```
 
+Returns the SDK version in the form 1.2.3 where:
+
+- 1 is the major version
+- 2 is the minor version
+- 3 is the patch level
+
 ## Methods
 ### `deinit`
 
