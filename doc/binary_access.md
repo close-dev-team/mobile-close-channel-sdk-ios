@@ -15,4 +15,4 @@ Then use a Personal Access Token (PAT) on GitHub as explained below to clone the
 * Under *Scopes* make sure *Repo* is checked
 * Fill in a catchy *Note* and select *Generate token*
 
-Copy the token that was generate and store it to use later.
+Copy the token that was generated and store it to use later.
