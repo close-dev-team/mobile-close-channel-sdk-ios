@@ -36,3 +36,12 @@ The solution is to increase the `iOS Deployment target` in the project setting o
 If the CloseChannel framework could not be loaded, please check to see if it has added correctly, and the *Embed* setting is set to *Embed & Sign*. With *Embed Without Signing* it would work when running in Debug or in the Simulator, but not when trying to create an archive.
 
   ![](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/images/screenshot_add_framework.png)
+
+### "Invalid Bundle Structure (...) /Frameworks/Pods_*name*.framework/Pods_*name*' is not permitted"
+
+When you get this error during uploading of your binary,  follow these steps:
+
+* Go to Targets / Select the target / General tab
+* Under 'Frameworks, Libraries and Embedded Content' remov the Pods_xxxxx.framework (where xxxxx is the app name)
+
+  ![](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/images/screenshot_remove_pods_framework.png)
