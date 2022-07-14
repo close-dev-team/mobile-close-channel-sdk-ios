@@ -21,7 +21,7 @@ public class CloseChannelController
 ```
 
 ---
-# Close Mobile Channel SDK
+# Close Channel Controllor that is used to access the SDK
 
 ## Properties
 ### `sharedInstance`
@@ -67,12 +67,13 @@ public func registerUser(uniqueId: String?,
 
 Registers a user at Close. If it does not exist yet it will create one, otherwise it returns the existing one.
 
-Note: If this call is done for subsequent times, it keeps returning the same user, regardless of the provided ID. Also, the nickname will not be updated
+Note: If this call is done for subsequent times, it keeps returning the same user, regardless of the provided uniqueId. Also, the nickname will not be updated
 
-In case of an error, make sure you retry until a user is sucessfully registered.
+In case of an error (e.e. server unreachable), make sure you retry until a user is successfully registered.
 
 - parameters:
   - `uniqueId`: A unique id for a user. Please make sure this is something a user cannot change him/herself, because then it would not be possible to link to the same data. So don't use a phone number or E-mail address. Instead, for example, use an UUID. If the value is nil a uniqueId will be generated
+  - `nickname`: Visible user name that can be used to personalise messages
   - `success`: Called when successfully completed
     - `closeUserId`:  The Close user ID of the user
   - `failure`: Called in case of an error
@@ -86,7 +87,7 @@ public func addChannel(closeCode: String,
                        failure: ((_ error: CloseChannelError) -> Void)?)
 ```
 
-Adds a new channel
+Adds a new channel to the user
 
 - parameters:
   - `closeCode`: The close code of the channel
@@ -95,8 +96,8 @@ Adds a new channel
   - `failure`: Called in case of an error
     - `error`: The error details
 
-⚠️ Note, that a channel with a specific Close code can only be added once.
-If you try to add the same Close code twice, you'll get an `CloseChannelAlreadyExists` error
+⚠️ Each unique Close code can be used only once to create a channel
+If you try to add the same Close code twice, you will get an `CloseChannelAlreadyExists` error
 
 ### `getChannels(success:failure:)`
 
@@ -105,7 +106,7 @@ public func getChannels( success: @escaping (_ channels: [Channel]) -> Void,
                          failure: ((_ error: CloseChannelError) -> Void)?)
 ```
 
-Get a list of available channels
+Get a list of available channels of the user
 
 - parameters:
   - `success`: Called when successfully completed
@@ -122,7 +123,7 @@ public func openChannelMessagesView(channelId: String? = nil,
                                     failure: ((_ error: CloseChannelError) -> Void)? = nil)
 ```
 
-View the chat messages in a channel
+Open a fullscreen view of a channel with the chat messages displayed
 Be sure to call this function on the main thread!
 
 - parameters:
@@ -148,7 +149,7 @@ public func openChannelInfoView(channelId: String? = nil,
                                 failure: ((_ error: CloseChannelError) -> Void)? = nil)
 ```
 
-View the info messages in a channel
+Open a fullscreen view of a channel with the info messages displayed
 Be sure to call this function on the main thread!
 
 - parameters:
@@ -174,7 +175,7 @@ public func registerPushInfo(token: String?,
                              failure: ((_ error: CloseChannelError) -> Void)?)
 ```
 
-Registers or unregisters for receiving push notifications
+Registers all needed data for receiving push notifications
 
 - parameters:
   - `token`: The device token as a hexadecimal string, nil to unregister.
@@ -182,7 +183,7 @@ Registers or unregisters for receiving push notifications
 
            `let pushToken = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})`
 
-  - `permissionGranted`: Wether or not the user allowed for push notifications.
+  - `permissionGranted`: Describes if the user has allowed receiving push notifications.
   Usually the result of a call to:
 
   ```

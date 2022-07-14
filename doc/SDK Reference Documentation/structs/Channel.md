@@ -21,7 +21,7 @@ public struct Channel
 
 The Channel object contains all information of a certain channel
 
-Use it to populate tableviews, show details of a channel or manage badges
+Use it to populate views, show details and images of a channel and manage badges
 to indicate unread messages.
 
 ## Properties
@@ -101,6 +101,4 @@ Url to the profile image for this event
 public let unreadMessages: UInt
 ```
 
-The number of unread messages for this chat
-
-This includes both the messages in the Messages and in the Info view
+The number of unread messages for this chat. This includes both the messages in the Messages and in the Info view

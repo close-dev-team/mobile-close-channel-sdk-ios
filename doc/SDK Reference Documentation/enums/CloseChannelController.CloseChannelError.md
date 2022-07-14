@@ -37,7 +37,7 @@ Some fatal internal error occurred, check console output for hints
 case ApiCallFailedServerUnreachable = 25101
 ```
 
-Internet is not available, this is a client-side problem
+The server could not be reached, most likely because internet is not available. Could be used to retry call after internet is restored.
 
 ### `ApiCallFailedServerError`
 
@@ -69,7 +69,7 @@ The Close code specified does not exist
 case CloseChannelAlreadyExists = 25202
 ```
 
-There is already a channel available with the provided Close code
+There is already a channel created for this user with the provided Close code
 
 ### `ChannelIdNotFound`
 
@@ -85,7 +85,7 @@ The channel with the specified ID was not found
 case NoChannelAvailable = 25302
 ```
 
-No channel was available, this can happen when opening the most recently created channel
+No channel was available, this can happen when calling a function without channel ID, and no channel yet exist for the user
 
 ## Properties
 ### `code`
