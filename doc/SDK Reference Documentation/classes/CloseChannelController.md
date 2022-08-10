@@ -12,8 +12,11 @@
   - `registerUser(uniqueId:nickname:success:failure:)`
   - `addChannel(closeCode:success:failure:)`
   - `getChannels(success:failure:)`
+  - `getChannelMessagesViewController(channelId:parent:success:failure:)`
+  - `getChannelInfoViewController(channelId:parent:success:failure:)`
   - `openChannelMessagesView(channelId:window:success:failure:)`
   - `openChannelInfoView(channelId:window:success:failure:)`
+  - `storeChannelProperties(properties:channelId:success:failure:)`
   - `registerPushInfo(token:permissionGranted:success:failure:)`
 
 ```swift
@@ -114,6 +117,60 @@ Get a list of available channels of the user
   - `failure`: Called in case of an error
     - `error`: The error details
 
+### `getChannelMessagesViewController(channelId:parent:success:failure:)`
+
+```swift
+public func getChannelMessagesViewController(channelId: String? = nil,
+                                             parent: UINavigationController? = nil,
+                                             success: @escaping ((_ channelMessagesViewController: ChannelViewController & ChannelMessageViewContainer) -> Void),
+                                             failure: ((_ error: CloseChannelError) -> Void)? = nil)
+```
+
+Return the chat messages view controller for a channel
+Be sure to call this function on the main thread!
+
+- parameters:
+  - `channelId`: The channel identifier of the channel to show. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console.
+  - `parent`: The parent view controller to present the channel in. Currently only a UINavigationController If not supplied a UINavigationController will be created.
+  - `success`: Called when the view will be presented
+    -  `channelMessagesViewController`:  The chat messages view controller
+  - `failure`: Called when the view failed being presented.
+    - `error`:  The error details
+
+## Possible errors:
+- `CloseChannelError.ChannelIdNotFound` : When the specified channel could no be found
+- `CloseChannelError.NoChannelAvailable` : No channel could be found. This could happen when you did not specifiy a channel id to open the most recently created one
+- `CloseChannelError.InternalSdkError` : A fatal error occurred
+
+⚠️  Be sure the view is dismissed before another Messages or Info view is shown. Having multiple simultaneously opened is not supported
+
+### `getChannelInfoViewController(channelId:parent:success:failure:)`
+
+```swift
+public func getChannelInfoViewController(channelId: String? = nil,
+                                         parent: UINavigationController? = nil,
+                                         success: @escaping ((_ channelMessagesViewController: ChannelViewController) -> Void),
+                                         failure: ((_ error: CloseChannelError) -> Void)? = nil)
+```
+
+Return the info view controller for a channel
+Be sure to call this function on the main thread!
+
+- parameters:
+  - `channelId`: The channel identifier of the channel to show. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console.
+  - `parent`: The parent view controller to present the channel in. Currently only a UINavigationController If not supplied a UINavigationController will be created.
+  - `success`: Called when the view will be presented
+    -  `channelMessagesViewController`:  The info view controller
+  - `failure`: Called when the view failed being presented.
+    - `error`:  The error details
+
+## Possible errors:
+- `CloseChannelError.ChannelIdNotFound` : When the specified channel could no be found
+- `CloseChannelError.NoChannelAvailable` : No channel could be found. This could happen when you did not specifiy a channel id to open the most recently created one
+- `CloseChannelError.InternalSdkError` : A fatal error occurred
+
+⚠️  Be sure the view is dismissed before another Messages or Info view is shown. Having multiple simultaneously opened is not supported
+
 ### `openChannelMessagesView(channelId:window:success:failure:)`
 
 ```swift
@@ -165,6 +222,23 @@ Be sure to call this function on the main thread!
 - `CloseChannelError.InternalSdkError` : A fatal error occurred
 
 ⚠️ Be sure the view is dismissed before another Messages or Info view is shown. Having multiple simultaneously opened is not supported
+
+### `storeChannelProperties(properties:channelId:success:failure:)`
+
+```swift
+public func storeChannelProperties(properties: [String: String],
+                                   channelId: String? = nil,
+                                   success: (() -> Void)? = nil,
+                                   failure: ((_ error: CloseChannelError) -> Void)? = nil)
+```
+
+Store properties to a channel
+- parameters:
+  - `properties`:  A map with key and values that you want to store. If the key exists, the data will be updated. If the key is new, a new record will be inserted.
+  - `channelId`:  The channel identifier of the channel where properties should be stored. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console
+  - `success`:  Called when properties are sucessfully stored.
+  - `failure`:  Called when the store properties failed.
+    - `error`: The error details
 
 ### `registerPushInfo(token:permissionGranted:success:failure:)`
 
