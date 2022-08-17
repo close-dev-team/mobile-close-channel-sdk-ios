@@ -2,7 +2,7 @@
 
 ## Preparations
 
-We need your push certificate to be able to send push notifications. Contact maurice@thecloseapp.com for more information.
+We need your push certificate to be able to send push notifications. Contact us via https://sdk.thecloseapp.com for more information.
 
 ## Registering
 
