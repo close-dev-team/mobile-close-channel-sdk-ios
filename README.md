@@ -1,4 +1,4 @@
-# Mobile Close Channel SDK
+# Mobile Close Channel SDK (for iOS)
 
 The Mobile Close Channel SDK allows you to integrate the Close communication platform in your own iOS app.
 
@@ -7,7 +7,7 @@ The Mobile Close Channel SDK allows you to integrate the Close communication pla
 We are developers ourselves and we know how frustrating it can be to integrate an SDK. But not this time: we will do our best to make it a fun exercise instead! Pinky promise, this won't be an emotional roller coaster: buckles are not needed!
 
 So, take a coffee ☕️, tea 🫖, or havermelk 🥛 and take my hand to guide you through this in a few easy steps.
-If you still run into problems don't hesitate to contact me at maurice@thecloseapp.com!
+If you still run into problems don't hesitate to contact us via https://sdk.thecloseapp.com
 
 ## Pre-requisites and notes
 
@@ -32,6 +32,10 @@ The SDK needs permissions to the camera and the photo album. Be sure to [add per
 ### Localisation
 
 The SDK supports `en_GB`, `en_US`, `nl` and `de` localisations. Please note that to use these localisations your app also must support these. The default localisation is `en_GB`.
+
+### Orientation
+
+Please note that the SDK only support portrait mode for showing the chat messages and info messages views. Take special care for not allowing the screen to rotate in landscape.
 
 # Quick start
 
@@ -67,19 +71,19 @@ source 'https://github.com/close-dev-team/close-cocoapods-specs.git'
 pod 'CloseChannel'
 ```
 
-* Then run:
+* Next, run:
 
 `pod install --repo-update`
 
 * You are asked for your E-mail address and password. Make sure that you **enter the personal access token you created before as your password**
-* Then you can start using the CloseChannel framework in your code by simply importing it:
+* When you have done all the above you can start using the CloseChannel framework in your code by simply importing it:
 
 ```swift
 import CloseChannel
 ```
 
 <details>
-<summary>Example of a minimal Podfile</summary>
+<summary>Example of a minimal `Podfile`</summary>
 
 ```
 source 'https://github.com/CocoaPods/Specs.git'
@@ -123,6 +127,8 @@ The CloseChannelController instance is the one you're going to talk to. Let's fi
   }
 ```
 
+>Note: or simplicity sake, in the examples we use create the CloseChannelController in the AppDelegate. This is not a bad practice and we advise you to create somewhere else.
+
 As it is a singleton instance, you can create and use it in any of your classes.
 
 ### Configuring the Close endpoint URL
@@ -137,7 +143,7 @@ You can configure this by following these steps:
 ⚠️ For testing purposes you can use the url `https://api.sdk-sandbox.closetest.nl:16443/`, but this should be replaced later with the URL that Close provides to your company.
 
 <details>
-  <summary>Sample</summary>
+  <summary>Example `CloseChannel-Info.plist` file</summary>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -161,6 +167,9 @@ You can configure this by following these steps:
 When the SDK is correctly set up we can continue connecting to the Close platform. This starts with registering a user on our platform.
 
 ```swift
+import UIKit
+import CloseChannel
+
 class YourUserProvider {
     static func appUser() -> AppUser {
         return AppUser()
@@ -171,6 +180,7 @@ struct AppUser {
     let name = "mieke"
 }
 
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
   let closeChannelController = CloseChannelController.sharedInstance
 
@@ -188,7 +198,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-As the `uniqueId` you can specify any string, as long as it uniquely identifies a user. It could be for example a phone number, an E-mail address or a UUID. The nickname is the nickname, first name or full name of the user. It is optional so does not have to be specified.
+A `uniqueId` is the id for a user in Close. Please make sure this is something a user cannot change him/herself, because then it would not be possible to link to the same data. So don't use a phone number or E-mail address. Instead, for example, use an UUID. If the value is null a uniqueId will be generated
+
+The `nickname` is the nickname, first name or full name of the user. It is optional so does not have to be specified.
+
+When registerUser is called multiple times, it will return the already existing user. It is not possible to change the uniqueId or to change the nickname with the registerUser call.
+
+Please make sure to read the [SDK reference documentation](./doc/SDK%20Reference%20Documentation/) for more information
 
 The `YourUserProvider` class in this code snippet provides a way to get user data. Replace this with your own implementation. The most important thing here is that you retrieve something that is unique to the user.
 
@@ -263,7 +279,39 @@ As closures are used to return wether a call succeeded or failed, it is easy to 
   * If not, we create a channel and open that one
 
 ```swift
-let appUser = YourUserProvider.appUser()
+import UIKit
+import CloseChannel
+
+class YourUserProvider {
+    static func appUser() -> AppUser {
+        return AppUser()
+    }
+}
+struct AppUser {
+    let id = "a_unique_id"
+    let name = "mieke"
+}
+
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    let closeChannelController = CloseChannelController.sharedInstance
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let appUser = YourUserProvider.appUser()
+        closeChannelController.registerUser(uniqueId: appUser.id,
+                                            nickname: appUser.name) { closeUserId in
+            // The returned closeUserId is a unique identifier that Close uses to identify users. You can store
+            // it for later use.
+        } failure: { error in
+            print("Failed to register user: \(error.code) \(error.message)")
+        }
+
+        showChannel()
+        return true
+    }
+
+    func showChannel() {
+        let appUser = YourUserProvider.appUser()
         closeChannelController.registerUser(uniqueId: appUser.id,
                                             nickname: appUser.name) { closeUserId in
 
@@ -293,6 +341,8 @@ let appUser = YourUserProvider.appUser()
         } failure: { error in
             print("Failed to register user: \(error.code) \(error.message)")
         }
+    }
+}
 ```
 
 
