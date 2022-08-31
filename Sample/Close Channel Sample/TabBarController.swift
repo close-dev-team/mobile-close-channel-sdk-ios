@@ -29,16 +29,22 @@ class TabBarController: UITabBarController {
             }
         }
 
-        optionsViewController?.newChannelTap = {
-            self.addChannelTapped()
-        }
+        if #available(iOS 13.0, *) {
+            let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithDefaultBackground()
+            tabBarAppearance.backgroundColor = UIColor.white
+            UITabBar.appearance().standardAppearance = tabBarAppearance
 
-        optionsViewController?.openLastChannelMessagesTap = {
-            self.closeChannelController.openChannelMessagesView(channelId: nil, window: nil)
-        }
+            if #available(iOS 15.0, *) {
+                UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            }
 
-        optionsViewController?.openLastChannelInfoTap = {
-            self.closeChannelController.openChannelInfoView(channelId: nil, window: nil)
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.backgroundColor = UIColor.colorFromHex(0xB30022)
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
 
         optionsViewController?.registerUserTap = {
@@ -114,6 +120,84 @@ class TabBarController: UITabBarController {
 
             UIApplication.mainWindow?.rootViewController?.present(alert, animated: true, completion: {})
         }
+
+        optionsViewController?.newChannelTap = {
+            self.addChannelTapped()
+        }
+
+        optionsViewController?.openLastChannelMessagesTap = {
+            self.closeChannelController.openChannelMessagesView(channelId: nil, window: nil)
+        }
+
+        optionsViewController?.openLastChannelInfoTap = {
+            self.closeChannelController.openChannelInfoView(channelId: nil, window: nil)
+        }
+
+        optionsViewController?.storePropertyTap = {
+            func storeProperty(_ name: String, _ value: String) {
+                self.closeChannelController.storeChannelProperties(properties: [name: value], channelId: nil) {
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(
+                            title: "Value \(value) for property \(name) saved",
+                            message: nil,
+                            preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
+                            alert.dismiss(animated: true)
+                        })
+                        UIApplication.mainWindow?.rootViewController?.present(alert, animated: true)
+                    }
+                } failure: { error in
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(
+                            title: "Could not store property",
+                            message: "\(error.message) [\(error.rawValue) - \(error.rawString)]",
+                            preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .cancel) { _ in
+                            alert.dismiss(animated: true)
+                        })
+                        UIApplication.mainWindow?.rootViewController?.present(alert, animated: true)
+                    }
+                }
+            }
+
+            let alert = UIAlertController(title: "Store Channel Property", message: nil, preferredStyle: .alert)
+            alert.addTextField { textField in
+                textField.placeholder = "property name"
+            }
+
+            alert.addTextField { (textField) in
+                textField.placeholder = "property value"
+            }
+            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert] _ in
+                if let name = alert?.textFields?.first?.text,
+                   let value = alert?.textFields?[1].text {
+                    storeProperty(name, value)
+                }
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) {  _ in
+                alert.dismiss(animated: true, completion: nil)
+            })
+            UIApplication.mainWindow?.rootViewController?.present(alert, animated: true, completion: {})
+        }
+
+        optionsViewController?.showChannelViewControllerTap = {
+            self.closeChannelController.getChannelMessagesViewController(channelId: nil) { channelMessagesViewController in
+                self.showChannelViewController(channelMessagesViewController)
+                self.viewControllers?.last?.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(named: "messages"), selectedImage: nil)
+                channelMessagesViewController.setBottomOffset(-self.tabBar.frame.height)
+            } failure: { error in
+                self.errorHandler(error)
+            }
+        }
+
+        optionsViewController?.showInfoViewControllerTap = {
+            self.closeChannelController.getChannelInfoViewController(channelId: nil) { channelInfoViewController in
+                self.showChannelViewController(channelInfoViewController)
+                self.viewControllers?.last?.tabBarItem = UITabBarItem(title: "Info", image: UIImage(named: "info"), selectedImage: nil)
+            } failure: { error in
+                self.errorHandler(error)
+            }
+        }
     }
 
     @objc fileprivate func addChannelTapped() {
@@ -169,5 +253,50 @@ class TabBarController: UITabBarController {
         }))
 
         UIApplication.mainWindow?.rootViewController?.present(alert, animated: true, completion: {})
+    }
+
+    private func showChannelViewController(_ channelMessagesViewController: ChannelViewController) {
+        if let index = self.viewControllers?.firstIndex(where: { $0.nameOfClass == channelMessagesViewController.nameOfClass
+            || (($0 as? UINavigationController)?.viewControllers.contains(where: { $0.nameOfClass == channelMessagesViewController.nameOfClass }) == true )
+        }) {
+            self.viewControllers?.remove(at: index)
+        }
+        if let navigationController = channelMessagesViewController.navigationController {
+            self.viewControllers?.append(navigationController)
+        } else {
+            self.viewControllers?.append(channelMessagesViewController)
+        }
+    }
+
+    private func errorHandler(_ error: CloseChannelController.CloseChannelError) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(
+                title: "Could not retrieve",
+                message: "\(error.message) [\(error.rawValue) - \(error.rawString)]",
+                preferredStyle: UIAlertController.Style.alert)
+
+            alert.addAction(UIAlertAction(title: "Ok",
+                                          style: .cancel) {  _ in
+                alert.dismiss(animated: true, completion: nil)
+            })
+
+            UIApplication.mainWindow?.rootViewController?.present(alert, animated: true,
+                                                                  completion: nil)
+        }
+    }
+}
+
+extension NSObject {
+    var nameOfClass: String {
+        return NSStringFromClass(type(of: self))
+    }
+}
+
+extension UIColor {
+    static func colorFromHex(_ hexColor: Int, alpha: CGFloat = 1.0) -> UIColor {
+        let redColor = CGFloat(hexColor & 0xFF0000) / CGFloat(0xFF0000)
+        let greenColor = CGFloat(hexColor & 0x00FF00) / CGFloat(0x00FF00)
+        let blueColor = CGFloat(hexColor & 0x0000FF) / CGFloat(0x0000FF)
+        return UIColor(red: redColor, green: greenColor, blue: blueColor, alpha: alpha)
     }
 }
