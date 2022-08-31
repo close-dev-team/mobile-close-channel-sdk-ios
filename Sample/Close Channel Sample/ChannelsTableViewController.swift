@@ -22,16 +22,20 @@ class ChannelsTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        func completed() {
-            activityIndicatorView.stopAnimating()
-            activityIndicatorView.removeFromSuperview()
-        }
-
         super.viewWillAppear(animated)
 
         view.backgroundColor = .white
 
         view.addSubview(activityIndicatorView)
+
+        refreshChannels()
+    }
+
+    private func refreshChannels() {
+        func completed() {
+            activityIndicatorView.stopAnimating()
+            activityIndicatorView.removeFromSuperview()
+        }
 
         if #available(iOS 13, *) {
             activityIndicatorView.style = .large
@@ -41,36 +45,31 @@ class ChannelsTableViewController: UITableViewController {
             activityIndicatorView.color = .black
         }
 
-        closeChannelController.getChannels { [self] channels in
-            self.channels = channels
+        activityIndicatorView.center = view.center
+        activityIndicatorView.startAnimating()
+
+#if !SDK_PERFORMANCE_TEST
+        closeChannelController.getChannels { [weak self] channels in
+            self?.channels = channels
             DispatchQueue.main.async {
                 completed()
-                self.tableView.reloadData()
+                self?.tableView.reloadData()
             }
-        } failure: { error in
+        } failure: { [weak self] error in
             print("Error: could not get channels: \(error.message)")
-
             DispatchQueue.main.async {
                 completed()
-                var message = "\(error.message) [\(error.rawValue) - \(error.rawString)]"
-                if error.rawValue == 25103 {
-                    message = "\(message)\n\nDid you forget to first register a user in the Options tab?"
-                }
-
                 let alert = UIAlertController(
                     title: "Could not retrieve list of channels",
-                    message: message,
-                    preferredStyle: UIAlertController.Style.alert)
-
-                alert.addAction(UIAlertAction(title: "Ok",
-                                              style: .cancel) {  _ in
+                    message: "\(error.message) [\(error.rawValue) - \(error.rawString)]",
+                    preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel) { _ in
                     alert.dismiss(animated: true, completion: nil)
                 })
-
-                self.present(alert, animated: true,
-                             completion: nil)
+                self?.present(alert, animated: true)
             }
         }
+#endif
     }
 
     fileprivate func channel(fromRow row: Int) -> Channel? {
@@ -176,6 +175,15 @@ class ChannelsTableViewController: UITableViewController {
                                                              completion: nil)
                 }
 
+            })
+
+            alert.addAction(UIAlertAction(title: "Remove channel",
+                                          style: .default) { [weak self] _ in
+//                self?.closeChannelController.removeChannel(channelId: channel.id, success: {
+//                    DispatchQueue.main.async {
+//                        self?.refreshChannels()
+//                    }
+//                })
             })
 
             alert.addAction(UIAlertAction(title: "Cancel",

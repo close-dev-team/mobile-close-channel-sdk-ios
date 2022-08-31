@@ -15,6 +15,9 @@ class OptionsViewController: UIViewController {
     var openLastChannelMessagesTap: (() -> Void)?
     var openLastChannelInfoTap: (() -> Void)?
     var registerUserTap: (() -> Void)?
+    var storePropertyTap: (() -> Void)?
+    var showChannelViewControllerTap: (() -> Void)?
+    var showInfoViewControllerTap: (() -> Void)?
 
     @IBOutlet var sdkVersionLabel: UILabel!
 
@@ -39,6 +42,18 @@ class OptionsViewController: UIViewController {
 
     @IBAction func registerUserTapped() {
         registerUserTap?()
+    }
+
+    @IBAction func storePropertyTapped() {
+        storePropertyTap?()
+    }
+
+    @IBAction func showChannelViewControllerTapped() {
+        showChannelViewControllerTap?()
+    }
+
+    @IBAction func showInfoViewControllerTapped() {
+        showInfoViewControllerTap?()
     }
 
 }
