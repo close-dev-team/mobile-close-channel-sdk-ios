@@ -394,7 +394,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Close Channel Sample/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Close uses your camera to take photos and share them with others.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "You can send a photo from your photo library with Close.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -428,7 +427,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Close Channel Sample/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Close uses your camera to take photos and share them with others.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "You can send a photo from your photo library with Close.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
