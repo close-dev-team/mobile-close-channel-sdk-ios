@@ -24,6 +24,8 @@ class ChannelsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        title = "Channels"
+
         view.backgroundColor = .white
 
         view.addSubview(activityIndicatorView)

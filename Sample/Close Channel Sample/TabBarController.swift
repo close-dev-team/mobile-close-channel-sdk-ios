@@ -16,16 +16,14 @@ class TabBarController: UITabBarController {
     var optionsViewController: OptionsViewController?
 
     override func viewDidLoad() {
-        if let viewControllers = viewControllers {
-            for viewController in viewControllers {
-                switch viewController {
-                case is ChannelsTableViewController:
-                    channelsTableViewController = viewController as? ChannelsTableViewController
-                case is OptionsViewController:
-                    optionsViewController = viewController as? OptionsViewController
-                default:
-                    break
-                }
+        for viewController in ((viewControllers ?? []).compactMap { ($0 as? UINavigationController)?.topViewController }) {
+            switch viewController {
+            case is ChannelsTableViewController:
+                channelsTableViewController = viewController as? ChannelsTableViewController
+            case is OptionsViewController:
+                optionsViewController = viewController as? OptionsViewController
+            default:
+                break
             }
         }
 
@@ -41,8 +39,7 @@ class TabBarController: UITabBarController {
 
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
-            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-            appearance.backgroundColor = UIColor.colorFromHex(0xB30022)
+            appearance.backgroundColor = UIColor.colorFromHex(0xFDBD16)
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
@@ -185,6 +182,7 @@ class TabBarController: UITabBarController {
                 self.showChannelViewController(channelMessagesViewController)
                 self.viewControllers?.last?.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(named: "messages"), selectedImage: nil)
                 channelMessagesViewController.setBottomOffset(-self.tabBar.frame.height)
+                channelMessagesViewController.setTopOffset(UIDevice.current.hasNotch ? 34 : 10)
             } failure: { error in
                 self.errorHandler(error)
             }
@@ -298,5 +296,17 @@ extension UIColor {
         let greenColor = CGFloat(hexColor & 0x00FF00) / CGFloat(0x00FF00)
         let blueColor = CGFloat(hexColor & 0x0000FF) / CGFloat(0x0000FF)
         return UIColor(red: redColor, green: greenColor, blue: blueColor, alpha: alpha)
+    }
+}
+
+extension UIDevice {
+    /// Returns `true` if the device has a notch
+    var hasNotch: Bool {
+        guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return false }
+        if UIDevice.current.orientation.isPortrait {
+            return window.safeAreaInsets.top >= 44
+        } else {
+            return window.safeAreaInsets.left > 0 || window.safeAreaInsets.right > 0
+        }
     }
 }

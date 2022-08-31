@@ -24,6 +24,8 @@ class OptionsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        title = "Options"
+
         sdkVersionLabel.textColor = .black
         sdkVersionLabel.text = "🔋 Powered by Close\nMobile Close Channel SDK \(closeChannelController.version)"
     }
