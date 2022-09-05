@@ -27,7 +27,7 @@ Both Arm and x86 processor architectures are supported, thus the SDK will also w
 
 ### Permissions
 
-The SDK needs permissions to the camera and the photo album. Be sure to [add permission strings](./doc/permissions.md) for any of the permissions not already supported by your app.
+The SDK needs permissions to the photo album. Be sure to [add permission strings](./doc/permissions.md) for any of the permissions not already supported by your app.
 
 ### Localisation
 
