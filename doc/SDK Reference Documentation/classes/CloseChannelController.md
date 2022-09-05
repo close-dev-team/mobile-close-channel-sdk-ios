@@ -5,6 +5,7 @@
 **Contents**
 
 - [Properties](#properties)
+  - `initialized`
   - `sharedInstance`
   - `version`
 - [Methods](#methods)
@@ -17,6 +18,7 @@
   - `openChannelMessagesView(channelId:window:success:failure:)`
   - `openChannelInfoView(channelId:window:success:failure:)`
   - `storeChannelProperties(properties:channelId:success:failure:)`
+  - `removeChannel(channelId:success:failure:)`
   - `registerPushInfo(token:permissionGranted:success:failure:)`
 
 ```swift
@@ -27,10 +29,10 @@ public class CloseChannelController
 # Close Channel Controllor that is used to access the SDK
 
 ## Properties
-### `sharedInstance`
+### `initialized`
 
 ```swift
-public static let sharedInstance: CloseChannelController =  CloseChannelController()
+public static var initialized = false
 ```
 
 Returns a singleton instance of the controller
@@ -39,6 +41,12 @@ Returns a singleton instance of the controller
 
 Usage example:
     `let closeChannelController = CloseChannelController.sharedInstance`
+
+### `sharedInstance`
+
+```swift
+public static let sharedInstance: CloseChannelController =  CloseChannelController()
+```
 
 ### `version`
 
@@ -238,6 +246,21 @@ Store properties to a channel
   - `channelId`:  The channel identifier of the channel where properties should be stored. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console
   - `success`:  Called when properties are sucessfully stored.
   - `failure`:  Called when the store properties failed.
+    - `error`: The error details
+
+### `removeChannel(channelId:success:failure:)`
+
+```swift
+public func removeChannel(channelId: String? = nil,
+                          success: (() -> Void)? = nil,
+                          failure: ((_ error: CloseChannelError) -> Void)? = nil)
+```
+
+Remove a channel
+- parameters:
+  - `channelId`:  The channel identifier. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console
+  - `success`:  Called when the channel is sucessfully removed.
+  - `failure`:  Called when the channel removment is failed.
     - `error`: The error details
 
 ### `registerPushInfo(token:permissionGranted:success:failure:)`

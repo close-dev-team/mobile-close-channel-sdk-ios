@@ -55,7 +55,7 @@ channel
 ### `from(userInfo:)`
 
 ```swift
-public static func from(userInfo: [AnyHashable : Any]) -> CloseChannelNotification?
+public static func from(userInfo: [AnyHashable: Any]) -> CloseChannelNotification?
 ```
 
 Creates a notification object using the userInfo contained in a push notification
