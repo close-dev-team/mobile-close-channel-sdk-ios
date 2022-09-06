@@ -181,11 +181,11 @@ class ChannelsTableViewController: UITableViewController {
 
             alert.addAction(UIAlertAction(title: "Remove channel",
                                           style: .default) { [weak self] _ in
-//                self?.closeChannelController.removeChannel(channelId: channel.id, success: {
-//                    DispatchQueue.main.async {
-//                        self?.refreshChannels()
-//                    }
-//                })
+                self?.closeChannelController.removeChannel(channelId: channel.id, success: {
+                    DispatchQueue.main.async {
+                        self?.refreshChannels()
+                    }
+                })
             })
 
             alert.addAction(UIAlertAction(title: "Cancel",
