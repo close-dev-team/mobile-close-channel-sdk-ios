@@ -44,7 +44,7 @@ cd mobile-close-channel-sdk-ios.git
 pod install --repo-update
 ```
 
-* The app at default will communicate with a test environment. Please change the api_base_url as described [here](https://github.com/close-dev-team/mobile-close-channel-sdk-ios) into one you received from Close.
+* The app at default will communicate with a test environment. Please change the api_base_url and api_access_token as described [here](https://github.com/close-dev-team/mobile-close-channel-sdk-ios) into one you received from Close.
 
 ## Registering a user
 The first time you start the app and open the Channels list, you'll see a *Could not retrieve list of channels / API call failed - User not valid* message.
