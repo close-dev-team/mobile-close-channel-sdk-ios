@@ -16,6 +16,7 @@
 		79DCBEE927EC56B900CFBA46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DCBEE727EC56B900CFBA46 /* Main.storyboard */; };
 		79DCBEEB27EC56BD00CFBA46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79DCBEEA27EC56BD00CFBA46 /* Assets.xcassets */; };
 		79DCBEEE27EC56BD00CFBA46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DCBEEC27EC56BD00CFBA46 /* LaunchScreen.storyboard */; };
+		79F3A9A628D1B37200B266A5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 79F3A9A528D1B37200B266A5 /* Podfile */; };
 		F5484D93B6977CE07F8B7894 /* Pods_Close_Channel_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B6328CBECF5A27B3D7389A1 /* Pods_Close_Channel_Sample.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		79DCBEEA27EC56BD00CFBA46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79DCBEED27EC56BD00CFBA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79DCBEEF27EC56BD00CFBA46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79F3A9A528D1B37200B266A5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		7B6328CBECF5A27B3D7389A1 /* Pods_Close_Channel_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Close_Channel_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		877398BABEA9C5763AE57BE3 /* Pods-Close Channel Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Close Channel Sample.release.xcconfig"; path = "Target Support Files/Pods-Close Channel Sample/Pods-Close Channel Sample.release.xcconfig"; sourceTree = "<group>"; };
 		9D8EB3114379759578F47087 /* Pods-Close Channel Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Close Channel Sample.debug.xcconfig"; path = "Target Support Files/Pods-Close Channel Sample/Pods-Close Channel Sample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		79DCBED527EC56B900CFBA46 = {
 			isa = PBXGroup;
 			children = (
+				79F3A9A528D1B37200B266A5 /* Podfile */,
 				79DCBEE027EC56B900CFBA46 /* Close Channel Sample */,
 				79DCBEDF27EC56B900CFBA46 /* Products */,
 				79DCBEF527EC5A5100CFBA46 /* Frameworks */,
@@ -176,6 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F3A9A628D1B37200B266A5 /* Podfile in Resources */,
 				79DCBEEE27EC56BD00CFBA46 /* LaunchScreen.storyboard in Resources */,
 				79DCBEEB27EC56BD00CFBA46 /* Assets.xcassets in Resources */,
 				79DCBEE927EC56B900CFBA46 /* Main.storyboard in Resources */,
@@ -404,7 +408,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thecloseapp.close.Close-Channel.sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -437,7 +441,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thecloseapp.close.Close-Channel.sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
