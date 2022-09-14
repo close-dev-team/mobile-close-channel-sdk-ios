@@ -37,6 +37,14 @@ Check if there is an `api_base_url` key with a `String` type in the `CloseChanne
 
 Check if the plist file is formatted correctly and starts with a root element that is of a `Dictionary` type
 
+#### "The API access token is not set"
+
+Set the API access token as described in the [README](../README.md).
+
+#### "Could not find key 'api_access_token' with a String value in CloseChannel-Info.plist"
+
+Check if there is an `api_access_token` key with a `String` type in the `CloseChannel-Info.plist` file.
+
 ## Errors during uploading
 
 ### "Invalid Bundle Structure (...) /Frameworks/Pods_*name*.framework/Pods_*name*' is not permitted"
