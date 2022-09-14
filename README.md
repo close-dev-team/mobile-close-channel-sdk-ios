@@ -25,10 +25,6 @@ Both Arm and x86 processor architectures are supported, thus the SDK will also w
 > ⚠️ iPad targets are not supported<br>
   ⚠️ SwiftUI is not specifically supported
 
-### Permissions
-
-The SDK needs permissions to the photo album. Be sure to [add permission strings](./doc/permissions.md) for any of the permissions not already supported by your app.
-
 ### Localisation
 
 The SDK supports `en_GB`, `en_US`, `nl` and `de` localisations. Please note that to use these localisations your app also must support these. The default localisation is `en_GB`.
