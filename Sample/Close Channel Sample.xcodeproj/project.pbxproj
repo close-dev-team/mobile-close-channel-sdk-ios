@@ -46,7 +46,7 @@
 		79DCBEEA27EC56BD00CFBA46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79DCBEED27EC56BD00CFBA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79DCBEEF27EC56BD00CFBA46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79F3A9A528D1B37200B266A5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		79F3A9A528D1B37200B266A5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7B6328CBECF5A27B3D7389A1 /* Pods_Close_Channel_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Close_Channel_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		877398BABEA9C5763AE57BE3 /* Pods-Close Channel Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Close Channel Sample.release.xcconfig"; path = "Target Support Files/Pods-Close Channel Sample/Pods-Close Channel Sample.release.xcconfig"; sourceTree = "<group>"; };
 		9D8EB3114379759578F47087 /* Pods-Close Channel Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Close Channel Sample.debug.xcconfig"; path = "Target Support Files/Pods-Close Channel Sample/Pods-Close Channel Sample.debug.xcconfig"; sourceTree = "<group>"; };
