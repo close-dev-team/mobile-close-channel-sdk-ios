@@ -9,6 +9,7 @@
   - `ApiCallFailedServerUnreachable`
   - `ApiCallFailedServerError`
   - `ApiCallFailedUserNotValid`
+  - `ApiCallFailedAccessTokenNotValid`
   - `CloseCodeDoesNotExist`
   - `CloseChannelAlreadyExists`
   - `ChannelIdNotFound`
@@ -54,6 +55,14 @@ case ApiCallFailedUserNotValid = 25103
 ```
 
 The user token is not valid or the user has not been registered yet
+
+### `ApiCallFailedAccessTokenNotValid`
+
+```swift
+case ApiCallFailedAccessTokenNotValid = 25104
+```
+
+API call failed - API Access token not valid
 
 ### `CloseCodeDoesNotExist`
 

@@ -21,8 +21,8 @@ func setTopOffset(_ value: CGFloat)
 func setBottomOffset(_ value: CGFloat)
 ```
 
-### `hideNavBar(_:)`
+### `showNavigationBar(_:withBackButton:)`
 
 ```swift
-func hideNavBar(_ value: Bool)
+func showNavigationBar(_ value: Bool, withBackButton: Bool)
 ```
