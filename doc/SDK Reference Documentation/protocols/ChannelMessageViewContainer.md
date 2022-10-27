@@ -6,7 +6,7 @@
 public protocol ChannelMessageViewContainer
 ```
 
-Protocol to setup top and bottom offset of Messages View
+Protocol to customize the messages or info views
 
 ## Methods
 ### `setTopOffset(_:)`
@@ -15,14 +15,18 @@ Protocol to setup top and bottom offset of Messages View
 func setTopOffset(_ value: CGFloat)
 ```
 
+Top offset to align the top of the chat
+
+- parameters:
+  - `value`: The offset
+
 ### `setBottomOffset(_:)`
 
 ```swift
 func setBottomOffset(_ value: CGFloat)
 ```
 
-### `showNavigationBar(_:withBackButton:)`
+Top offset to align the bottom of the chat
 
-```swift
-func showNavigationBar(_ value: Bool, withBackButton: Bool)
-```
+- parameters:
+  - `value`: The offset

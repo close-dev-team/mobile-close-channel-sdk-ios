@@ -13,8 +13,8 @@
   - `registerUser(uniqueId:nickname:success:failure:)`
   - `addChannel(closeCode:success:failure:)`
   - `getChannels(success:failure:)`
-  - `getChannelMessagesViewController(channelId:parent:success:failure:)`
-  - `getChannelInfoViewController(channelId:parent:success:failure:)`
+  - `getChannelMessagesViewController(channelId:parent:navigationType:success:failure:)`
+  - `getChannelInfoViewController(channelId:parent:navigationType:success:failure:)`
   - `openChannelMessagesView(channelId:window:success:failure:)`
   - `openChannelInfoView(channelId:window:success:failure:)`
   - `storeChannelProperties(properties:channelId:success:failure:)`
@@ -125,11 +125,12 @@ Get a list of available channels of the user
   - `failure`: Called in case of an error
     - `error`: The error details
 
-### `getChannelMessagesViewController(channelId:parent:success:failure:)`
+### `getChannelMessagesViewController(channelId:parent:navigationType:success:failure:)`
 
 ```swift
 public func getChannelMessagesViewController(channelId: String? = nil,
                                              parent: UINavigationController? = nil,
+                                             navigationType: MessagesViewNavigationType = .builtInWithoutBackButton,
                                              success: @escaping ((_ channelMessagesViewController: ChannelViewController & ChannelMessageViewContainer) -> Void),
                                              failure: ((_ error: CloseChannelError) -> Void)? = nil)
 ```
@@ -140,6 +141,7 @@ Be sure to call this function on the main thread!
 - parameters:
   - `channelId`: The channel identifier of the channel to show. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console.
   - `parent`: The parent view controller to present the channel in. Currently only a UINavigationController If not supplied a UINavigationController will be created.
+  - `navigationBarType`: Wether or not to show a navigationbar or provide a custom one, see the enum values for an explantation
   - `success`: Called when the view will be presented
     -  `channelMessagesViewController`:  The chat messages view controller
   - `failure`: Called when the view failed being presented.
@@ -150,13 +152,14 @@ Be sure to call this function on the main thread!
 - `CloseChannelError.NoChannelAvailable` : No channel could be found. This could happen when you did not specifiy a channel id to open the most recently created one
 - `CloseChannelError.InternalSdkError` : A fatal error occurred
 
-⚠️  Be sure the view is dismissed before another Messages or Info view is shown. Having multiple simultaneously opened is not supported
+⚠️  Be sure the view is dismissed and removed from memory before another Messages or Info view is shown. Having multiple simultaneously opened is not supported. Symptoms could include: some chat balloons not appearing, in-chat buttons not executing actions or the chat not dismissable.
 
-### `getChannelInfoViewController(channelId:parent:success:failure:)`
+### `getChannelInfoViewController(channelId:parent:navigationType:success:failure:)`
 
 ```swift
 public func getChannelInfoViewController(channelId: String? = nil,
                                          parent: UINavigationController? = nil,
+                                         navigationType: InfoViewNavigationType = .none,
                                          success: @escaping ((_ channelMessagesViewController: ChannelViewController) -> Void),
                                          failure: ((_ error: CloseChannelError) -> Void)? = nil)
 ```
@@ -167,6 +170,7 @@ Be sure to call this function on the main thread!
 - parameters:
   - `channelId`: The channel identifier of the channel to show. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console.
   - `parent`: The parent view controller to present the channel in. Currently only a UINavigationController If not supplied a UINavigationController will be created.
+  - `navigationType`: Wether or not to show a navigationbar or provide a custom one, see the enum values for an explantation
   - `success`: Called when the view will be presented
     -  `channelMessagesViewController`:  The info view controller
   - `failure`: Called when the view failed being presented.
@@ -177,7 +181,7 @@ Be sure to call this function on the main thread!
 - `CloseChannelError.NoChannelAvailable` : No channel could be found. This could happen when you did not specifiy a channel id to open the most recently created one
 - `CloseChannelError.InternalSdkError` : A fatal error occurred
 
-⚠️  Be sure the view is dismissed before another Messages or Info view is shown. Having multiple simultaneously opened is not supported
+⚠️  Be sure the view is dismissed and removed from memory before another Messages or Info view is shown. Having multiple simultaneously opened is not supported. Symptoms could include: some chat balloons not appearing, in-chat buttons not executing actions or the chat not dismissable.
 
 ### `openChannelMessagesView(channelId:window:success:failure:)`
 
@@ -203,7 +207,7 @@ Be sure to call this function on the main thread!
 - `CloseChannelError.NoChannelAvailable` : No channel could be found. This could happen when you did not specifiy a channel id to open the most recently created one
 - `CloseChannelError.InternalSdkError` : A fatal error occurred
 
-⚠️ Be sure the view is dismissed before another Messages or Info view is shown. Having multiple simultaneously opened is not supported
+⚠️ Be sure the view is dismissed and removed from memory before another Messages or Info view is shown. Having multiple simultaneously opened is not supported. Symptoms could include: some chat balloons not appearing, in-chat buttons not executing actions or the chat not dismissable.
 
 ### `openChannelInfoView(channelId:window:success:failure:)`
 
@@ -229,7 +233,7 @@ Be sure to call this function on the main thread!
 - `CloseChannelError.NoChannelAvailable` : No channel could be found. This could happen when you did not specifiy a channel id to open the most recently created one
 - `CloseChannelError.InternalSdkError` : A fatal error occurred
 
-⚠️ Be sure the view is dismissed before another Messages or Info view is shown. Having multiple simultaneously opened is not supported
+⚠️ Be sure the view is dismissed and removed from memory before another Messages or Info view is shown. Having multiple simultaneously opened is not supported. Symptoms could include: some chat balloons not appearing, in-chat buttons not executing actions or the chat not dismissable.
 
 ### `storeChannelProperties(properties:channelId:success:failure:)`
 
