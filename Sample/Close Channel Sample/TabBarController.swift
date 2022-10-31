@@ -195,6 +195,8 @@ class TabBarController: UITabBarController {
         optionsViewController?.showChannelViewControllerTap = {
             self.closeChannelController.getChannelMessagesViewController(channelId: nil, navigationType: .custom) { channelMessagesViewController in
                 channelMessagesViewController.title = "Talk to us"
+                channelMessagesViewController.setTopInset(0)
+                channelMessagesViewController.setBottomInset(0)
 
                 self.showChannelViewController(channelMessagesViewController)
                 self.viewControllers?.last?.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(named: "messages"), selectedImage: nil)
