@@ -8,6 +8,21 @@
 import UIKit
 import CloseChannel
 
+extension UIViewController {
+    /**
+     *  Height of status bar + navigation bar (if navigation bar exist)
+     */
+    var topBarHeight: CGFloat {
+        var top = self.navigationController?.navigationBar.frame.height ?? 0.0
+        if #available(iOS 13.0, *) {
+            top += UIApplication.shared.windows.first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        } else {
+            top += UIApplication.shared.statusBarFrame.height
+        }
+        return top
+    }
+}
+
 class TabBarController: UITabBarController {
 
     let closeChannelController = CloseChannelController.sharedInstance
@@ -178,11 +193,12 @@ class TabBarController: UITabBarController {
         }
 
         optionsViewController?.showChannelViewControllerTap = {
-            self.closeChannelController.getChannelMessagesViewController(channelId: nil) { channelMessagesViewController in
+            self.closeChannelController.getChannelMessagesViewController(channelId: nil, navigationType: .custom) { channelMessagesViewController in
+                channelMessagesViewController.title = "Talk to us"
+
                 self.showChannelViewController(channelMessagesViewController)
                 self.viewControllers?.last?.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(named: "messages"), selectedImage: nil)
-                channelMessagesViewController.setBottomOffset(-self.tabBar.frame.height)
-                channelMessagesViewController.setTopOffset(UIDevice.current.hasNotch ? 34 : 10)
+
             } failure: { error in
                 self.errorHandler(error)
             }

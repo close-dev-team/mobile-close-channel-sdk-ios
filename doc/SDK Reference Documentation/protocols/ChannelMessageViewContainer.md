@@ -30,3 +30,25 @@ Top offset to align the bottom of the chat
 
 - parameters:
   - `value`: The offset
+
+### `setTopInset(_:)`
+
+```swift
+func setTopInset(_ value: CGFloat)
+```
+
+Top inset to align the content of the chat
+
+- parameters:
+  - `value`: The inset
+
+### `setBottomInset(_:)`
+
+```swift
+func setBottomInset(_ value: CGFloat)
+```
+
+Bottom inset to align the content of the chat
+
+- parameters:
+  - `value`: The inset
