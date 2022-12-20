@@ -149,7 +149,7 @@ You can configure this by following these steps:
 <dict>
 	<key>api_base_url</key>
 	<string>https://api.sdk-sandbox.closetest.nl:16443/</string>
-  <key>api_access_token</key>
+	<key>api_access_token</key>
 	<string>sdk-sandbox-access-token</string>  
 </dict>
 </plist>
