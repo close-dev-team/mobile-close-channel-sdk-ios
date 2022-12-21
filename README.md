@@ -11,9 +11,11 @@ If you still run into problems don't hesitate to contact us via https://sdk.thec
 
 ## Pre-requisites and notes
 
-To make an easy start, be sure you have these versions:
+To make an easy start, be sure you have any of these versions:
 
 * Xcode 13.2.1
+* Xcode 13.4.2
+* Xcode 14.0
 
 Newer versions could work / should work, but we have verified it to work with the above tool versions.
 
