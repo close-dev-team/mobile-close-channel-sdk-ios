@@ -125,7 +125,7 @@ The CloseChannelController instance is the one you're going to talk to. Let's fi
   }
 ```
 
->Note: or simplicity sake, in the examples we use create the CloseChannelController in the AppDelegate. This is not a bad practice and we advise you to create somewhere else.
+>Note: or simplicity sake, in the examples we use create the CloseChannelController in the AppDelegate. This is a bad practice and we advise you to create it somewhere else.
 
 As it is a singleton instance, you can create and use it in any of your classes.
 
