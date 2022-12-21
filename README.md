@@ -350,7 +350,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 Your app is now integrated with the Close platform! To improve and make it ready for production please check out the sections below.
 
 ## Use the correct Close endpoint URL, API access token and Close code
-Change the `api_base_url` and `api_access_token` to the correct once you received from Close. Also make sure
+Change the `api_base_url` and `api_access_token` to the correct ones you received from Close. Also make sure
 to use the right Close code. It can happen that the one for a Testing or Staging environment
 differs from the one on the Production environment.
 
