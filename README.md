@@ -365,6 +365,8 @@ Before being able to upload the app to Apple, [add permission strings](./doc/per
 
 The code samples in the sections above have been simplified by not showing all parameters. Make sure you read the [SDK reference documentation](./doc/SDK%20Reference%20Documentation/) for all details.
 
+For an overview of documentation see [here](./doc/)
+
 ## Error handling
 
 Additionally, in the code samples above, error handling has been greatly simplified. You should improve on error handling and add retries, [which is explained in detail here](./doc/error_handling.md).
