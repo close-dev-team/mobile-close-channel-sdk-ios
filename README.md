@@ -11,13 +11,16 @@ If you still run into problems don't hesitate to contact us via https://sdk.thec
 
 ## Pre-requisites and notes
 
-To make an easy start, be sure you have any of these versions:
+To make an easy start, be sure you have this Xcode versions:
 
-* Xcode 13.2.1
-* Xcode 13.4.2
 * Xcode 14.0
 
 Newer versions could work / should work, but we have verified it to work with the above tool versions.
+
+These older versions of Xcode are verified to work with SDK version 1.2.4:
+
+* Xcode 13.2.1
+* Xcode 13.4.2
 
 ### Supported iOS versions and architectures
 
@@ -69,6 +72,21 @@ source 'https://github.com/close-dev-team/close-cocoapods-specs.git'
 pod 'CloseChannel'
 ```
 
+Also add to the end of your Podfile:
+
+```
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+        end
+    end
+end
+```
+
+This is needed, otherwise you will get 'dyld: Symbol not found' errors during compilation. See https://github.com/CocoaPods/CocoaPods/issues/9775 for more info.
+
+
 * Next, run:
 
 `pod install --repo-update`
@@ -92,6 +110,18 @@ target 'Close Channel Sample' do
   use_frameworks!
 
   pod 'CloseChannel'
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+
+            if target.name == 'SwiftSocket'
+              config.build_settings['SWIFT_VERSION'] = '5.0'
+            end
+        end
+    end
 end
 ```
 

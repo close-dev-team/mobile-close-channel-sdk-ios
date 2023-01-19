@@ -55,3 +55,33 @@ When you get this error during uploading of your binary,  follow these steps:
 * Under 'Frameworks, Libraries and Embedded Content' remov the Pods_xxxxx.framework (where xxxxx is the app name)
 
   ![](https://github.com/close-dev-team/mobile-close-channel-sdk-ios/raw/main/doc/images/screenshot_remove_pods_framework.png)
+
+## "dyld: Symbol not found: ..."
+
+See https://github.com/CocoaPods/CocoaPods/issues/9775 for more info. Add this to the end of your Podfile:
+
+```
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+        end
+    end
+end
+```
+
+## SWIFT_VERSION '3' is unsupported ... in SwiftSocket
+
+Add this to then end of your Podfile:
+
+```
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            if target.name == 'SwiftSocket'
+              config.build_settings['SWIFT_VERSION'] = '5.0'
+            end
+        end
+    end
+end
+```
