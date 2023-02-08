@@ -13,27 +13,19 @@
   - `registerUser(uniqueId:nickname:success:failure:)`
   - `addChannel(closeCode:success:failure:)`
   - `getChannels(success:failure:)`
-  - `getChannelMessagesViewController(channelId:parent:navigationType:success:failure:)`
-  - `getChannelInfoViewController(channelId:parent:navigationType:success:failure:)`
-  - `openChannelMessagesView(channelId:window:success:failure:)`
-  - `openChannelInfoView(channelId:window:success:failure:)`
+  - `getChannelMessagesViewController(channelId:success:failure:)`
+  - `getChannelInfoViewController(channelId:navigationType:success:failure:)`
+  - `openChannelMessagesView(channelId:window:presenterViewController:success:failure:)`
+  - `openChannelInfoView(channelId:window:presenterViewController:success:failure:)`
   - `storeChannelProperties(properties:channelId:success:failure:)`
   - `removeChannel(channelId:success:failure:)`
   - `registerPushInfo(token:permissionGranted:success:failure:)`
-
-```swift
-public class CloseChannelController
-```
 
 ---
 # Close Channel Controllor that is used to access the SDK
 
 ## Properties
 ### `initialized`
-
-```swift
-public static var initialized = false
-```
 
 Returns a singleton instance of the controller
 
@@ -44,15 +36,7 @@ Usage example:
 
 ### `sharedInstance`
 
-```swift
-public static let sharedInstance: CloseChannelController =  CloseChannelController()
-```
-
 ### `version`
-
-```swift
-public var version: String
-```
 
 Returns the SDK version in the form 1.2.3 where:
 
@@ -63,18 +47,7 @@ Returns the SDK version in the form 1.2.3 where:
 ## Methods
 ### `deinit`
 
-```swift
-deinit
-```
-
 ### `registerUser(uniqueId:nickname:success:failure:)`
-
-```swift
-public func registerUser(uniqueId: String?,
-                         nickname: String?,
-                         success: @escaping (_ closeUserId: String) -> Void,
-                         failure: ((_ error: CloseChannelError) -> Void)?)
-```
 
 Registers a user at Close. If it does not exist yet it will create one, otherwise it returns the existing one.
 
@@ -92,12 +65,6 @@ In case of an error (e.e. server unreachable), make sure you retry until a user 
 
 ### `addChannel(closeCode:success:failure:)`
 
-```swift
-public func addChannel(closeCode: String,
-                       success: @escaping (_ channnel: Channel) -> Void,
-                       failure: ((_ error: CloseChannelError) -> Void)?)
-```
-
 Adds a new channel to the user
 
 - parameters:
@@ -112,11 +79,6 @@ If you try to add the same Close code twice, you will get an `CloseChannelAlread
 
 ### `getChannels(success:failure:)`
 
-```swift
-public func getChannels( success: @escaping (_ channels: [Channel]) -> Void,
-                         failure: ((_ error: CloseChannelError) -> Void)?)
-```
-
 Get a list of available channels of the user
 
 - parameters:
@@ -125,23 +87,13 @@ Get a list of available channels of the user
   - `failure`: Called in case of an error
     - `error`: The error details
 
-### `getChannelMessagesViewController(channelId:parent:navigationType:success:failure:)`
-
-```swift
-public func getChannelMessagesViewController(channelId: String? = nil,
-                                             parent: UINavigationController? = nil,
-                                             navigationType: MessagesViewNavigationType = .builtInWithoutBackButton,
-                                             success: @escaping ((_ channelMessagesViewController: ChannelViewController & ChannelMessageViewContainer) -> Void),
-                                             failure: ((_ error: CloseChannelError) -> Void)? = nil)
-```
+### `getChannelMessagesViewController(channelId:success:failure:)`
 
 Return the chat messages view controller for a channel
 Be sure to call this function on the main thread!
 
 - parameters:
   - `channelId`: The channel identifier of the channel to show. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console.
-  - `parent`: The parent view controller to present the channel in. Currently only a UINavigationController If not supplied a UINavigationController will be created.
-  - `navigationBarType`: Wether or not to show a navigationbar or provide a custom one, see the enum values for an explantation
   - `success`: Called when the view will be presented
     -  `channelMessagesViewController`:  The chat messages view controller
   - `failure`: Called when the view failed being presented.
@@ -154,15 +106,7 @@ Be sure to call this function on the main thread!
 
 ⚠️  Be sure the view is dismissed and removed from memory before another Messages or Info view is shown. Having multiple simultaneously opened is not supported. Symptoms could include: some chat balloons not appearing, in-chat buttons not executing actions or the chat not dismissable.
 
-### `getChannelInfoViewController(channelId:parent:navigationType:success:failure:)`
-
-```swift
-public func getChannelInfoViewController(channelId: String? = nil,
-                                         parent: UINavigationController? = nil,
-                                         navigationType: InfoViewNavigationType = .none,
-                                         success: @escaping ((_ channelMessagesViewController: ChannelViewController) -> Void),
-                                         failure: ((_ error: CloseChannelError) -> Void)? = nil)
-```
+### `getChannelInfoViewController(channelId:navigationType:success:failure:)`
 
 Return the info view controller for a channel
 Be sure to call this function on the main thread!
@@ -170,7 +114,7 @@ Be sure to call this function on the main thread!
 - parameters:
   - `channelId`: The channel identifier of the channel to show. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console.
   - `parent`: The parent view controller to present the channel in. Currently only a UINavigationController If not supplied a UINavigationController will be created.
-  - `navigationType`: Wether or not to show a navigationbar or provide a custom one, see the enum values for an explantation
+  - `navigationType`: Wether or not to show a back button, see the enum values for an explanation
   - `success`: Called when the view will be presented
     -  `channelMessagesViewController`:  The info view controller
   - `failure`: Called when the view failed being presented.
@@ -181,23 +125,18 @@ Be sure to call this function on the main thread!
 - `CloseChannelError.NoChannelAvailable` : No channel could be found. This could happen when you did not specifiy a channel id to open the most recently created one
 - `CloseChannelError.InternalSdkError` : A fatal error occurred
 
+⚠️  Note that the navigationbar is hidden by this viewcontroller
 ⚠️  Be sure the view is dismissed and removed from memory before another Messages or Info view is shown. Having multiple simultaneously opened is not supported. Symptoms could include: some chat balloons not appearing, in-chat buttons not executing actions or the chat not dismissable.
 
-### `openChannelMessagesView(channelId:window:success:failure:)`
-
-```swift
-public func openChannelMessagesView(channelId: String? = nil,
-                                    window: UIWindow? = nil,
-                                    success: (() -> Void)? = nil,
-                                    failure: ((_ error: CloseChannelError) -> Void)? = nil)
-```
+### `openChannelMessagesView(channelId:window:presenterViewController:success:failure:)`
 
 Open a fullscreen view of a channel with the chat messages displayed
 Be sure to call this function on the main thread!
 
 - parameters:
   - `channelId`: The channel identifier of the channel to show. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console.
-  - `window`: The window to present the channel on. If not supplied the app window will be used. It is strongly advised to supply the window if your app supports external screens
+  - `window`: The window to present the channel on. If not supplied the app window will be used. When not providing your own parentViewController, it is strongly advised to supply the window if your app supports external screens
+  - `presenterViewController`:  The viewcontroller to present the channel on. If not supplied it will use the rootviewcontroller of the specified window
   - `success`: Called when the view will be presented
   - `failure`: Called when the view failed being presented.
     - `error`:  The error details
@@ -209,21 +148,15 @@ Be sure to call this function on the main thread!
 
 ⚠️ Be sure the view is dismissed and removed from memory before another Messages or Info view is shown. Having multiple simultaneously opened is not supported. Symptoms could include: some chat balloons not appearing, in-chat buttons not executing actions or the chat not dismissable.
 
-### `openChannelInfoView(channelId:window:success:failure:)`
-
-```swift
-public func openChannelInfoView(channelId: String? = nil,
-                                window: UIWindow? = nil,
-                                success: (() -> Void)? = nil,
-                                failure: ((_ error: CloseChannelError) -> Void)? = nil)
-```
+### `openChannelInfoView(channelId:window:presenterViewController:success:failure:)`
 
 Open a fullscreen view of a channel with the info messages displayed
 Be sure to call this function on the main thread!
 
 - parameters:
   - `channelId`: The channel identifier of the channel to show. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console
-  - `window`: The window to present the channel on. If not supplied the app window will be used. It is strongly advised to supply the window if your app supports external screens
+  - `window`: The window to present the channel on. If not supplied the app window will be used. When not providing your own parentViewController, it is strongly advised to supply the window if your app supports external screens
+  - `presenterViewController`:  The viewcontroller to present the channel on. If not supplied it will use the rootviewcontroller of the specified window
   - `success`: Called when the view will be presented
   - `failure`:  Called when the view failed being presented.
     - `error`: The error details
@@ -237,13 +170,6 @@ Be sure to call this function on the main thread!
 
 ### `storeChannelProperties(properties:channelId:success:failure:)`
 
-```swift
-public func storeChannelProperties(properties: [String: String],
-                                   channelId: String? = nil,
-                                   success: (() -> Void)? = nil,
-                                   failure: ((_ error: CloseChannelError) -> Void)? = nil)
-```
-
 Store properties to a channel
 - parameters:
   - `properties`:  A map with key and values that you want to store. If the key exists, the data will be updated. If the key is new, a new record will be inserted.
@@ -254,12 +180,6 @@ Store properties to a channel
 
 ### `removeChannel(channelId:success:failure:)`
 
-```swift
-public func removeChannel(channelId: String? = nil,
-                          success: (() -> Void)? = nil,
-                          failure: ((_ error: CloseChannelError) -> Void)? = nil)
-```
-
 Remove a channel
 - parameters:
   - `channelId`:  The channel identifier. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console
@@ -268,13 +188,6 @@ Remove a channel
     - `error`: The error details
 
 ### `registerPushInfo(token:permissionGranted:success:failure:)`
-
-```swift
-public func registerPushInfo(token: String?,
-                             permissionGranted: Bool,
-                             success: @escaping (_ isPushEnabled: Bool) -> Void,
-                             failure: ((_ error: CloseChannelError) -> Void)?)
-```
 
 Registers all needed data for receiving push notifications
 
