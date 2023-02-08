@@ -39,7 +39,7 @@ class TabBarController: UITabBarController {
 
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = UIColor.colorFromHex(0xFDBD16)
+            appearance.backgroundColor = UIColor(named: "AccentColor")
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
@@ -288,15 +288,6 @@ class TabBarController: UITabBarController {
 extension NSObject {
     var nameOfClass: String {
         return NSStringFromClass(type(of: self))
-    }
-}
-
-extension UIColor {
-    static func colorFromHex(_ hexColor: Int, alpha: CGFloat = 1.0) -> UIColor {
-        let redColor = CGFloat(hexColor & 0xFF0000) / CGFloat(0xFF0000)
-        let greenColor = CGFloat(hexColor & 0x00FF00) / CGFloat(0x00FF00)
-        let blueColor = CGFloat(hexColor & 0x0000FF) / CGFloat(0x0000FF)
-        return UIColor(red: redColor, green: greenColor, blue: blueColor, alpha: alpha)
     }
 }
 
