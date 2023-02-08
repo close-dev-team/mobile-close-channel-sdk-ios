@@ -376,7 +376,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-
 # Congratulations!
 
 Your app is now integrated with the Close platform! To improve and make it ready for production please check out the sections below.
@@ -393,9 +392,9 @@ Before being able to upload the app to Apple, [add permission strings](./doc/per
 
 ## SDK Reference Documentation
 
-The code samples in the sections above have been simplified by not showing all parameters. Make sure you read the [SDK reference documentation](./doc/SDK%20Reference%20Documentation/) for all details.
+The code samples in the sections above have been simplified by not showing all parameters. Make sure you read the [SDK reference documentation](./doc/SDK%20Reference%20Documentation/) for all details. Also if you want more control over the views, check the reference documentation as there are interface methods to suit all your needs.
 
-For an overview of documentation see [here](./doc/)
+Start [here](./doc/) for an overview of the documentation.
 
 ## Error handling
 
