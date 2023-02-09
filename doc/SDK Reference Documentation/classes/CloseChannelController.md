@@ -113,7 +113,6 @@ Be sure to call this function on the main thread!
 
 - parameters:
   - `channelId`: The channel identifier of the channel to show. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console.
-  - `parent`: The parent view controller to present the channel in. Currently only a UINavigationController If not supplied a UINavigationController will be created.
   - `navigationType`: Wether or not to show a back button, see the enum values for an explanation
   - `success`: Called when the view will be presented
     -  `channelMessagesViewController`:  The info view controller
@@ -125,7 +124,6 @@ Be sure to call this function on the main thread!
 - `CloseChannelError.NoChannelAvailable` : No channel could be found. This could happen when you did not specifiy a channel id to open the most recently created one
 - `CloseChannelError.InternalSdkError` : A fatal error occurred
 
-⚠️  Note that the navigationbar is hidden by this viewcontroller
 ⚠️  Be sure the view is dismissed and removed from memory before another Messages or Info view is shown. Having multiple simultaneously opened is not supported. Symptoms could include: some chat balloons not appearing, in-chat buttons not executing actions or the chat not dismissable.
 
 ### `openChannelMessagesView(channelId:window:presenterViewController:success:failure:)`
@@ -135,7 +133,7 @@ Be sure to call this function on the main thread!
 
 - parameters:
   - `channelId`: The channel identifier of the channel to show. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console.
-  - `window`: The window to present the channel on. If not supplied the app window will be used. When not providing your own parentViewController, it is strongly advised to supply the window if your app supports external screens
+  - `window`: The window to present the channel on. If not supplied the app window will be used. It is strongly advised to supply the window if your app supports external screens
   - `presenterViewController`:  The viewcontroller to present the channel on. If not supplied it will use the rootviewcontroller of the specified window
   - `success`: Called when the view will be presented
   - `failure`: Called when the view failed being presented.
@@ -155,7 +153,7 @@ Be sure to call this function on the main thread!
 
 - parameters:
   - `channelId`: The channel identifier of the channel to show. If nil or not supplied the most recently created channel will be used. If the channelId does not exist it will return an error (see below) and write a warning in the console
-  - `window`: The window to present the channel on. If not supplied the app window will be used. When not providing your own parentViewController, it is strongly advised to supply the window if your app supports external screens
+  - `window`: The window to present the channel on. If not supplied the app window will be used. It is strongly advised to supply the window if your app supports external screens
   - `presenterViewController`:  The viewcontroller to present the channel on. If not supplied it will use the rootviewcontroller of the specified window
   - `success`: Called when the view will be presented
   - `failure`:  Called when the view failed being presented.

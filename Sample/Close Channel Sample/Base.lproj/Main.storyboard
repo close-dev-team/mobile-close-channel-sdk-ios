@@ -377,7 +377,7 @@
         <image name="menucard" catalog="system" width="108" height="128"/>
         <image name="menucard.fill" catalog="system" width="105" height="128"/>
         <namedColor name="AccentColor">
-            <color red="0.28969269990000002" green="0.077699206770000001" blue="0.63472372290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.28999999165534973" green="0.078000001609325409" blue="0.63499999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="AccentTextColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

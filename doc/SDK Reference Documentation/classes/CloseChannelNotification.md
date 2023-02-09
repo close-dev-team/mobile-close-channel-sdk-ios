@@ -31,7 +31,7 @@ The channel ID of the channel the message is related to
 
 ### `openInInfoView`
 
-When this boolean is true it means the message is related to the Info vIEW
+When this boolean is true it means the message is related to the Info
 view of the channel, otherwise if is related to the Messages View of the
 channel
 
