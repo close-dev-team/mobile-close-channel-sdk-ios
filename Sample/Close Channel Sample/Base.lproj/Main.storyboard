@@ -159,7 +159,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add new channel" cornerStyle="fixed">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" name="AccentTextColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="newChannelTapped" destination="9k0-NY-nzk" eventType="touchUpInside" id="qfB-dA-Nr1"/>
@@ -175,7 +175,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Open latest channel (messages)" cornerStyle="fixed">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" name="AccentTextColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="openLastChannelMessagesTapped" destination="9k0-NY-nzk" eventType="touchUpInside" id="V3z-kY-2hE"/>
@@ -191,7 +191,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Open latest channel (info)" cornerStyle="fixed">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" name="AccentTextColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="openLastChannelInfoTapped" destination="9k0-NY-nzk" eventType="touchUpInside" id="1Wd-Wn-g2C"/>
@@ -206,7 +206,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Register user" cornerStyle="fixed">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" name="AccentTextColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="registerUserTapped" destination="9k0-NY-nzk" eventType="touchUpInside" id="DgT-WX-Jps"/>
@@ -230,7 +230,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add message view controller" cornerStyle="fixed">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" name="AccentTextColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="showChannelViewControllerTapped" destination="9k0-NY-nzk" eventType="touchUpInside" id="BHg-jb-rl0"/>
@@ -245,7 +245,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add info view controller" cornerStyle="fixed">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" name="AccentTextColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="showInfoViewControllerTapped" destination="9k0-NY-nzk" eventType="touchUpInside" id="Rdh-EW-EkL"/>
@@ -260,7 +260,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Store Channel Properties" cornerStyle="fixed">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" name="AccentTextColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="storePropertyTapped" destination="9k0-NY-nzk" eventType="touchUpInside" id="5ed-xf-JrA"/>
@@ -335,7 +335,7 @@
         <!--Channels-->
         <scene sceneID="uLa-8N-dqC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g3d-IW-G5q" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g3d-IW-G5q" customClass="StyledNavigationController" customModule="Close_Channel_Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Channels" image="list.bullet.circle" catalog="system" selectedImage="list.bullet.circle.fill" id="Lsu-YH-W0r"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="o3y-1B-RiD">
@@ -354,7 +354,7 @@
         <!--Options-->
         <scene sceneID="RHp-vo-TvM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BPD-dB-Egu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BPD-dB-Egu" customClass="StyledNavigationController" customModule="Close_Channel_Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Options" image="menucard" catalog="system" selectedImage="menucard.fill" id="pJd-Ti-GZI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TLP-Pw-WvV">
@@ -377,7 +377,10 @@
         <image name="menucard" catalog="system" width="108" height="128"/>
         <image name="menucard.fill" catalog="system" width="105" height="128"/>
         <namedColor name="AccentColor">
-            <color red="1" green="0.78039215689999997" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.28969269990000002" green="0.077699206770000001" blue="0.63472372290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="AccentTextColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

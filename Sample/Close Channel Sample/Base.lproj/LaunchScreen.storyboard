@@ -22,7 +22,7 @@
                                 <string key="text">Mobile Close Channel Sample App
 Apache 2.0 License</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="AccentTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close sdk" translatesAutoresizingMaskIntoConstraints="NO" id="XSE-Jt-Qby">
@@ -52,7 +52,10 @@ Apache 2.0 License</string>
     <resources>
         <image name="close sdk" width="512" height="512"/>
         <namedColor name="AccentColor">
-            <color red="1" green="0.78039215689999997" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.28969269990000002" green="0.077699206770000001" blue="0.63472372290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="AccentTextColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

@@ -8,6 +8,12 @@
 import UIKit
 import CloseChannel
 
+class StyledNavigationController: UINavigationController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+}
+
 class TabBarController: UITabBarController {
 
     let closeChannelController = CloseChannelController.sharedInstance
@@ -40,9 +46,15 @@ class TabBarController: UITabBarController {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = UIColor(named: "AccentColor")
+            let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AccentTextColor")]
+            appearance.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
+
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
+
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
 
         optionsViewController?.registerUserTap = {
             func registerUser(uniqueId: String?, nickname: String?) {
@@ -180,7 +192,7 @@ class TabBarController: UITabBarController {
         optionsViewController?.showChannelViewControllerTap = {
             self.closeChannelController.getChannelMessagesViewController(channelId: nil) { channelMessagesViewController in
                 channelMessagesViewController.title = "Talk to us"
-                let navigationBar = UINavigationController(rootViewController: channelMessagesViewController)
+                _ = StyledNavigationController(rootViewController: channelMessagesViewController)
                 self.showChannelViewController(channelMessagesViewController)
                 self.viewControllers?.last?.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(named: "messages"), selectedImage: nil)
 
@@ -288,17 +300,5 @@ class TabBarController: UITabBarController {
 extension NSObject {
     var nameOfClass: String {
         return NSStringFromClass(type(of: self))
-    }
-}
-
-extension UIDevice {
-    /// Returns `true` if the device has a notch
-    var hasNotch: Bool {
-        guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return false }
-        if UIDevice.current.orientation.isPortrait {
-            return window.safeAreaInsets.top >= 44
-        } else {
-            return window.safeAreaInsets.left > 0 || window.safeAreaInsets.right > 0
-        }
     }
 }

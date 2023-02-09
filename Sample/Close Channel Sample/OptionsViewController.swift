@@ -57,5 +57,4 @@ class OptionsViewController: UIViewController {
     @IBAction func showInfoViewControllerTapped() {
         showInfoViewControllerTap?()
     }
-
 }
