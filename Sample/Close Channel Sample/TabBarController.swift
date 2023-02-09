@@ -267,8 +267,8 @@ class TabBarController: UITabBarController {
     }
 
     private func showChannelViewController(_ channelMessagesViewController: ChannelViewController) {
-        if let index = self.viewControllers?.firstIndex(where: { $0.nameOfClass == channelMessagesViewController.nameOfClass
-            || (($0 as? UINavigationController)?.viewControllers.contains(where: { $0.nameOfClass == channelMessagesViewController.nameOfClass }) == true )
+        if let index = self.viewControllers?.firstIndex(where: { $0 is ChannelViewController
+            || (($0 as? UINavigationController)?.viewControllers.contains(where: { $0 is ChannelViewController }) == true )
         }) {
             self.viewControllers?.remove(at: index)
         }
@@ -294,11 +294,5 @@ class TabBarController: UITabBarController {
             UIApplication.mainWindow?.rootViewController?.present(alert, animated: true,
                                                                   completion: nil)
         }
-    }
-}
-
-extension NSObject {
-    var nameOfClass: String {
-        return NSStringFromClass(type(of: self))
     }
 }
