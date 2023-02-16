@@ -2,7 +2,7 @@
 
 ## Preparations
 
-We need your push certificate to be able to send push notifications. Contact us via https://sdk.thecloseapp.com for more information.
+Besides the bundle ID of your app we need your *key* for *Apple Push Notifications service (APNs)*. You can create this in the Apple Developer portal in the section *Certificates, Identifiers & Profiles*. Contact us via https://sdk.thecloseapp.com for more information.
 
 ## Registering
 
@@ -88,6 +88,9 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 
     }
 ```
+
+#### Best practices
+When a messages view or info view is opened it is a good practice not to show a toaster with the message for that particular view. The user already is in that view and the incoming message will be shown anyway. You can use the `openInInfoView` boolean in `CloseChannelNotification` to see for what view the message is meant.
 
 ## Handling taps
 
