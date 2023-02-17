@@ -27,7 +27,7 @@ These older versions of Xcode are verified to work with SDK version 1.2.4:
 ⚠️ The SDK supports iOS version 12.0 and higher, be sure the `iOS Deployment target` in the project settings of your app is set to 12.0 or higher.
 Both Arm and x86 processor architectures are supported, thus the SDK will also work in the simulator.
 
-> ⚠️ iPad targets are not supported<br>
+> ⚠️ iPad targets are not fully supported, there could be cosmetic issues
   ⚠️ SwiftUI is not specifically supported
 
 ### Localisation

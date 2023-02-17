@@ -46,7 +46,7 @@ fileprivate func registerForPushNotifications() {
 ```
 
 When we have permission, register the device aka push token.
-s
+
 ```swift
 // When successfully registered for push notifications
 func application(_ application: UIApplication,
