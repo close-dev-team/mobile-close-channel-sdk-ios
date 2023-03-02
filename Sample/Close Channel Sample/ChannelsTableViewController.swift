@@ -8,6 +8,25 @@
 import UIKit
 import CloseChannel
 
+extension UIImageView {
+    func loadImage(from url: URL?) {
+
+        DispatchQueue.global(qos: .background).async {
+            if let url = url,
+               let data = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    self.image = UIImage(data: data)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.image = nil
+                }
+            }
+        }
+
+    }
+}
+
 class ChannelsTableViewController: UITableViewController {
     let closeChannelController = CloseChannelController.sharedInstance
     var channels = [Channel]()
@@ -108,22 +127,14 @@ class ChannelsTableViewController: UITableViewController {
                 cell.unreadMessagesLabel?.layer.masksToBounds = true
                 cell.unreadMessagesLabel?.isHidden = (channel.unreadMessages == 0)
 
-                if let url = channel.profileImageUrl,
-                   let data = try? Data(contentsOf: url) {
-                    cell.profileImageView?.image = UIImage(data: data)
-                    cell.profileImageView?.contentMode = .scaleAspectFit
-                } else {
-                    cell.profileImageView?.image = nil
-                }
+                cell.profileImageView?.backgroundColor = .lightGray
+                cell.profileImageView?.loadImage(from: channel.profileImageUrl)
+                cell.profileImageView?.contentMode = .scaleAspectFill
 
-                if let url = channel.backgroundImageUrl,
-                   let data = try? Data(contentsOf: url) {
-                    cell.backgroundImageView?.image = UIImage(data: data)
-                    cell.backgroundImageView?.alpha = 0.2
-                    cell.backgroundImageView?.contentMode = .scaleAspectFill
-                } else {
-                    cell.backgroundImageView?.image = nil
-                }
+                cell.backgroundImageView?.backgroundColor = .lightGray
+                cell.backgroundImageView?.loadImage(from: channel.backgroundImageUrl)
+                cell.backgroundImageView?.alpha = 0.2
+                cell.backgroundImageView?.contentMode = .scaleAspectFill
             }
             return cell
         }
