@@ -11,6 +11,7 @@ If you still run into problems don't hesitate to contact us via https://sdk.thec
 
 ## Pre-requisites and notes
 
+# Build environment
 To make an easy start, be sure you have this Xcode versions:
 
 * Xcode 14.0
@@ -21,6 +22,19 @@ These older versions of Xcode are verified to work with SDK version 1.2.4:
 
 * Xcode 13.2.1
 * Xcode 13.4.2
+
+# Other pre-requisites
+
+* To get access to our private repository with the SDK binary, you'll need:
+    * a GitHub account
+    * a GitHub personal access token, how to create one is explained [here](doc/binary_access.md)
+* To get access to the Close platform you'll need:
+    * An API base URL
+    * An API access token
+    * These can be obtained via https://sdk.thecloseapp.com
+    * An API base URL and access token to access our sandbox environment can be found in the section *Configuring the Close endpoint URL*.
+    * Additionally you'll need an Close Code of the flow that needs to be presented in one of the channels. For the sandbox environment you can use `SDKDEMO`, for other environments a flow (together with the Close Code for that flow) can be created in the Close Builder.
+
 
 ### Supported iOS versions and architectures
 
@@ -91,7 +105,7 @@ This is needed, otherwise you will get 'dyld: Symbol not found' errors during co
 
 `pod install --repo-update`
 
-* You are asked for your E-mail address and password. Make sure that you **enter the personal access token you created before as your password**
+* You are asked for your E-mail address and password. Make sure that you **enter the personal access token you created before as your password**. If you did not create it yet, check [this](doc/binary_access.md)
 * When you have done all the above you can start using the CloseChannel framework in your code by simply importing it:
 
 ```swift
@@ -167,7 +181,7 @@ You can configure this by following these steps:
 
 * Add a plist file named `CloseChannel-Info.plist` to your project, don't forget to add it to the correct target(s)
 * Add a string property named `api_base_url` with the URL as the value.
-* Add a string property named `api_access_token` with the api access token (see below) as the value.
+* Add a string property named `api_access_token` with the API access token (see below) as the value.
 
 ⚠️ For testing purposes you can use the url `https://api.sdk-sandbox.closetest.nl:16443/`, and the api_access_token `sdk-sandbox-access-token` but this should be replaced later with the URL that Close provides to your company.
 
