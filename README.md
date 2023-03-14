@@ -23,17 +23,15 @@ These older versions of Xcode are verified to work with SDK version 1.2.4:
 * Xcode 13.2.1
 * Xcode 13.4.2
 
-### Other pre-requisites
+### What you'll need from us to start integration
 
-* To get access to our private repository with the SDK binary, you'll need:
+* To get access to our private repository with our SDK framework, you'll need:
     * a GitHub account
     * a GitHub personal access token, how to create one is explained [here](doc/binary_access.md)
 * To get access to the Close platform you'll need:
-    * An API base URL
-    * An API access token
-    * These can be obtained via https://sdk.thecloseapp.com
-    * An API base URL and access token to access our sandbox environment can be found in the section *Configuring the Close endpoint URL*.
-    * Additionally you'll need a Close Code of the flow that needs to be presented in one of the channels. For the sandbox environment you can use `SDKDEMO`, for other environments a flow (together with the Close Code for that flow) can be created in the Close Builder.
+    * A _CloseChannel-Info.plist_ file
+      * That contains an API base URL and API access token (values to access our sandbox environment can be found below)
+    * A Close Code of the flow that needs to be presented in one of the channels (or use `SDKDEMO` to start testing)
 
 ### Supported iOS versions and architectures
 
