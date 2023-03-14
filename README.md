@@ -279,10 +279,14 @@ DispatchQueue.main.async {
 }
 ```
 
-<details>
-  <summary>An alternative channel view</summary>
+There are 2 ways of showing the channel:
 
-  Besides the channel messages view, which shows messages in a chat-like way with text balloons, there is an alternative view which is called the Info view. In this view it is possible to show informational messages, tickets and bought products.
+   * *Channel messages view*. This shows messages in a chat-like way with text balloons, ordered by date/time of sending
+   * *Channel info view*. This shows informational messages, tickets and bought products, ordered by pre defined order
+
+
+<details>
+  <summary>Showing the channel info view<</summary>
 
   ```swift
   DispatchQueue.main.async {
