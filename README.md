@@ -314,7 +314,6 @@ closeChannelController.getChannels { channels in
 ```
 </details>
 
-
 ### Presenting a channel on an existing viewcontroller
 
 So far you have learned how you show a channel in the easiest way by opening it fullscreen. If you want to have more control, like adding your own navigation bar or make the channel part of a tab bar, you should use `getChannelMessagesViewController` (or the alternative `getChannelInfoViewController`):
@@ -326,7 +325,9 @@ So far you have learned how you show a channel in the easiest way by opening it 
     })
 ```
 
-Please not that not all modal presentation styles are currently supported. Check the changelog for known issues.
+>Please note that not all modal presentation styles are currently supported. Check the changelog for known issues.
+
+> Also note that you should always reserve a large part (80% or more) of your screen to display the close channel correctly
 
 In this section some examples, make sure you do the calls on the main thread:
 
