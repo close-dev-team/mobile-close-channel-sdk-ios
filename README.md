@@ -281,9 +281,8 @@ DispatchQueue.main.async {
 
 There are 2 ways of showing the channel:
 
-   * *Channel messages view*. This shows messages in a chat-like way with text balloons, ordered by date/time of sending
-   * *Channel info view*. This shows informational messages, tickets and bought products, ordered by pre defined order
-
+   * **Channel messages view**. This shows messages in a chat-like way with text balloons, ordered by date/time of sending
+   * **Channel info view**. This shows informational messages, tickets and bought products, ordered by pre defined order
 
 <details>
   <summary>Showing the channel info view<</summary>
@@ -316,7 +315,7 @@ closeChannelController.getChannels { channels in
 </details>
 
 
-## Presenting a channel on an existing viewcontroller
+### Presenting a channel on an existing viewcontroller
 
 So far you have learned how you show a channel in the easiest way by opening it fullscreen. If you want to have more control, like adding your own navigation bar or make the channel part of a tab bar, you should use `getChannelMessagesViewController` (or the alternative `getChannelInfoViewController`):
 
