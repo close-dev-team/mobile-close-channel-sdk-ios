@@ -11,7 +11,7 @@ If you still run into problems don't hesitate to contact us via https://sdk.thec
 
 ## Pre-requisites and notes
 
-# Build environment
+### Build environment
 To make an easy start, be sure you have this Xcode versions:
 
 * Xcode 14.0
@@ -23,7 +23,7 @@ These older versions of Xcode are verified to work with SDK version 1.2.4:
 * Xcode 13.2.1
 * Xcode 13.4.2
 
-# Other pre-requisites
+### Other pre-requisites
 
 * To get access to our private repository with the SDK binary, you'll need:
     * a GitHub account
@@ -33,8 +33,7 @@ These older versions of Xcode are verified to work with SDK version 1.2.4:
     * An API access token
     * These can be obtained via https://sdk.thecloseapp.com
     * An API base URL and access token to access our sandbox environment can be found in the section *Configuring the Close endpoint URL*.
-    * Additionally you'll need an Close Code of the flow that needs to be presented in one of the channels. For the sandbox environment you can use `SDKDEMO`, for other environments a flow (together with the Close Code for that flow) can be created in the Close Builder.
-
+    * Additionally you'll need a Close Code of the flow that needs to be presented in one of the channels. For the sandbox environment you can use `SDKDEMO`, for other environments a flow (together with the Close Code for that flow) can be created in the Close Builder.
 
 ### Supported iOS versions and architectures
 
@@ -285,7 +284,7 @@ DispatchQueue.main.async {
 <details>
   <summary>An alternative channel view</summary>
 
-  Besides the channel messages view, which shows messages in chat-like way with text balloons, there is an alternative view which is called the Info view. In this view it is possible to show informational messages, tickets and bought products.
+  Besides the channel messages view, which shows messages in a chat-like way with text balloons, there is an alternative view which is called the Info view. In this view it is possible to show informational messages, tickets and bought products.
 
   ```swift
   DispatchQueue.main.async {
@@ -311,6 +310,79 @@ closeChannelController.getChannels { channels in
 } failure: { error in
     print("Failed to get channels: \(error.code) \(error.message)")
 }
+```
+</details>
+
+
+## Presenting a channel on an existing viewcontroller
+
+So far you have learned how you show a channel in the easiest way by opening it fullscreen. If you want to have more control, like adding your own navigation bar or make the channel part of a tab bar, you should use `getChannelMessagesViewController` (or the alternative `getChannelInfoViewController`):
+
+```swift
+    closeChannelController.getChannelMessagesViewController(success: { channelMessagesViewController in
+        // Set the modalPresentationStyle property
+        // and present the viewcontroller
+    })
+```
+
+Please not that not all modal presentation styles are currently supported. Check the changelog for known issues.
+
+In this section some examples, make sure you do the calls on the main thread:
+
+<details>
+  <summary>Show without a navigation bar</summary>
+
+With `openChannelMessagesView` a navigation bar is shown in the colors defined in the Close builder. If you want to show the channel without a navigationbar you could do this:
+
+```swift
+    closeChannelController.getChannelMessagesViewController(success: { channelMessagesViewController in
+        channelMessagesViewController.modalPresentationStyle = .fullScreen
+        yourViewController.present(channelMessagesViewController, animated: true)
+    })
+```
+</details>
+
+<details>
+  <summary>Show with a custom navigation bar</summary>
+
+If you want to have your own navigation bar, you can do something like:
+
+```swift
+    closeChannelController.getChannelMessagesViewController(success: { channelMessagesViewController in
+        let navigationController  = UINavigationController(rootViewController: channelMessagesViewController)
+        channelMessagesViewController.title = "Messages"
+        
+        // (Do any navigation bar appearance customizations here)
+
+        channelMessagesViewController.modalPresentationStyle = .fullScreen
+        yourViewController.present(channelMessagesViewController, animated: true)
+    })
+```
+</details>
+
+<details>
+  <summary>Show in a tab</summary>
+
+If you want to show the channel as part of a tab, you could do this:
+
+```swift
+    closeChannelController.getChannelMessagesViewController(success: { channelMessagesViewController in
+        yourTabBarController.viewControllers = [channelMessagesViewController]
+    })
+```
+</details>
+
+<details>
+  <summary>Show in a tab with a navigationbar</summary>
+
+To use this combination, you can simply add a navigation controller in between. Then instead of adding the channel viewcontroller, add the navigation controller to the tabbar:
+
+```swift
+    closeChannelController.getChannelMessagesViewController(success: { channelMessagesViewController in
+        let navigationController  = UINavigationController(rootViewController: channelMessagesViewController)
+        channelMessagesViewController.title = "Messages"
+        yourTabBarController.viewControllers = [navigationController]
+    })
 ```
 </details>
 
