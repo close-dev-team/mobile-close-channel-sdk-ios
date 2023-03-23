@@ -14,7 +14,7 @@ If you still run into problems don't hesitate to contact us via https://sdk.thec
 ### Build environment
 To make an easy start, be sure you have this Xcode versions:
 
-* Xcode 14.0
+* Xcode 14.0 or 14.1
 
 Newer versions could work / should work, but we have verified it to work with the above tool versions.
 
