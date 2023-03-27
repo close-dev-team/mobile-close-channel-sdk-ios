@@ -177,7 +177,13 @@ When you run this, in the console you will see the message: `The API base URL is
 You can configure this by following these steps:
 
 * Add a plist file named `CloseChannel-Info.plist` to your project, don't forget to add it to the correct target(s)
-* Add a string property named `api_base_url` with the URL as the value.
+* Add a string property named `api_base_url` with the API URL as the value.
+* Optionally, a string property named `socket_base_url` with the socket URL as the value
+  > When this key is not present, the socket URL will be derived from the API URL. 
+  > For some (testing) environments deriving the URL will not work and a socket URL needs to be specified.
+  > Contact us for the correct URL to use.
+
+  > ⚠️ If this value is incorrectly specified, receiving messages could be slower or not be working at all
 * Add a string property named `api_access_token` with the API access token (see below) as the value.
 
 ⚠️ For testing purposes you can use the url `https://api.sdk-sandbox.closetest.nl:16443/`, and the api_access_token `sdk-sandbox-access-token` but this should be replaced later with the URL that Close provides to your company.
@@ -192,6 +198,8 @@ You can configure this by following these steps:
 <dict>
 	<key>api_base_url</key>
 	<string>https://api.sdk-sandbox.closetest.nl:16443/</string>
+	<key>api_socket_url</key>
+	<string>https://socket.sdk-sandbox.closetest.nl:3000/</string>
 	<key>api_access_token</key>
 	<string>sdk-sandbox-access-token</string>  
 </dict>
