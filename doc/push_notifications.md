@@ -2,7 +2,15 @@
 
 ## Preparations
 
-Besides the bundle ID of your app we need your *key* for *Apple Push Notifications service (APNs)*. You can create this in the Apple Developer portal in the section *Certificates, Identifiers & Profiles*. Contact us via https://sdk.thecloseapp.com for more information.
+Besides the bundle ID of your app we need your *key* for *Apple Push Notifications service (APNs)*. You can create this in the Apple Developer portal in the section *Certificates, Identifiers & Profiles*.
+
+Please make sure you share these values with us:
+
+  - Private key (p8 file contents or a base64 string of it)
+  - Key ID
+  - Team ID
+
+Contact us via https://sdk.thecloseapp.com for more information.
 
 ## Registering
 
