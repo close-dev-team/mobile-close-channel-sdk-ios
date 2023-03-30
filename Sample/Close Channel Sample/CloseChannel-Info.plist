@@ -4,8 +4,6 @@
 <dict>
 	<key>api_base_url</key>
 	<string>https://api.sdk-sandbox.closetest.nl:16443/</string>
-	<key>api_socket_url</key>
-	<string>https://socket.sdk-sandbox.closetest.nl:3000/</string>
 	<key>api_access_token</key>
 	<string>sdk-sandbox-access-token</string>
 </dict>
