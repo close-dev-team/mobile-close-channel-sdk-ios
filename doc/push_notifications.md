@@ -8,6 +8,7 @@ Tap the plus (+) sign and add select the *Apple Push Notifications service (APNs
 
 Please make sure you share these values with us:
 
+  - Bundle ID
   - Private key (p8 file contents or a base64 string of it)
   - Key ID
   - The Team ID your are using
