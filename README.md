@@ -73,7 +73,7 @@ To add the SDK to your project follow the steps in this section.
 #### Adding the Close framework - Swift Package Manager
 Add CloseChannel SDK using the Swift Package Manager:
 
-* https://github.com/close-dev-team/mobile-close-channel-sdk-binary-ios  (version 1.7.0)
+* https://github.com/close-dev-team/mobile-close-channel-sdk-ios  (version 1.7.0)
 * https://github.com/close-dev-team/mobile-close-channel-sdk-ios-dependencies  (version 1.7.0) 
 
 The latest version available via Swift Package Manager is 1.7.0.
