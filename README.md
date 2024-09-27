@@ -14,12 +14,13 @@ If you still run into problems don't hesitate to contact us via https://sdk.thec
 ### Build environment
 To make an easy start, be sure you have this Xcode versions:
 
-* Xcode 15.4
+* Xcode 16.0
 
 Newer versions could work / should work, but we have verified it to work with the above tool versions.
 
 These older versions of Xcode are verified to work with SDK are:
 
+* Xcode 15.4
 * Xcode 14.0 or 14.1
 * Xcode 13.2.1
 * Xcode 13.4.2
@@ -73,10 +74,10 @@ To add the SDK to your project follow the steps in this section.
 #### Adding the Close framework - Swift Package Manager
 Add CloseChannel SDK using the Swift Package Manager:
 
-* https://github.com/close-dev-team/mobile-close-channel-sdk-ios  (version 1.7.0)
-* https://github.com/close-dev-team/mobile-close-channel-sdk-ios-dependencies  (version 1.7.0) 
+* https://github.com/close-dev-team/mobile-close-channel-sdk-ios  (version 1.7.1)
+* https://github.com/close-dev-team/mobile-close-channel-sdk-ios-dependencies  (version 1.7.1) 
 
-The latest version available via Swift Package Manager is 1.7.0.
+The latest version available via Swift Package Manager is 1.7.1
 
 Because our Package is in a binary format, we need a seperate packe to include all necessary dependencies. 
 
@@ -478,10 +479,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
+## Push notifications
 
-# Congratulations!
+Messages mean nothing if your users don't read them. 
+Be sure to enable Close push notifications. 
+It's not hard, we do most of the work for you. 
+[Continue reading here](./doc/push_notifications.md).
 
-Your app is now integrated with the Close platform! To improve and make it ready for production please check out the sections below.
+There are three important features to test after integrating push notifications:
++ Do push notifications appear when the app is active? 
++ Do push notifications appear when the app is inactive?
++ Is the user directed to the Close Channel SDK screen with the messages when they click on the push notification?
+
+The getChannels method will also return the current unread messages counter. 
+If the count is greater than zero, you can use this to highlight the messages tab or display a red dot on the button to draw the user's attention.
 
 ## Use the correct Close endpoint URL, API access token and Close code
 Change the `api_base_url` and `api_access_token` to the correct ones you received from Close. Also make sure
@@ -490,8 +501,6 @@ differs from the one on the Production environment.
 
 ## Add permission strings
 Before being able to upload the app to Apple, [add permission strings](./doc/permissions.md) for any of the permissions not already supported by your app.
-
-# Where to continue from here?
 
 ## SDK Reference Documentation
 
@@ -502,11 +511,6 @@ Start [here](./doc/) for an overview of the documentation.
 ## Error handling
 
 Additionally, in the code samples above, error handling has been greatly simplified. You should improve on error handling and add retries, [which is explained in detail here](./doc/error_handling.md).
-
-## Push notifications
-
-Messages are meaning nothing if your users don't read them. Be sure you connect
-the Close push notifications. It's not hard, we do most of the work for you. [Continue reading here](./doc/push_notifications.md).
 
 ## List of channels
 
