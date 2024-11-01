@@ -19,8 +19,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "CloseChannelBinaryTarget",
-            url: "https://github.com/close-dev-team/mobile-close-channel-sdk-binary-ios/archive/refs/tags/1.7.1.zip",
-            checksum: "6dd838c50dc2932add1b37119cbda7bcbfff74c58b2c15369df853532b35f390"
+            url: "https://github.com/close-dev-team/mobile-close-channel-sdk-binary-ios/archive/refs/tags/1.7.2.zip",
+            checksum: "2e6d5be9b52e5f856cf10c6a83be71b6d76fa5843f9259d18c91f0966a01a32f"
         ),
         .target(
             name: "CloseChannelBinaryWrapperTarget",
