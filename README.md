@@ -197,7 +197,7 @@ You can configure this by following these steps:
 * Add a string property named `api_base_url` with the API URL as the value.
 * Add a string property named `api_access_token` with the API access token (see below) as the value.
 
-⚠️ For testing purposes you can use the url `https://api.sdk-sandbox.closetest.nl:16443/`, and the api_access_token `sdk-sandbox-access-token` but this should be replaced later with the URL that Close provides to your company.
+⚠️ For testing purposes you can use the url `https://api.sdk-sandbox.closeplatform.com/`, and the api_access_token `sdk-sandbox-access-token` but this should be replaced later with the URL that Close provides to your company.
 
 <details>
   <summary>Example `CloseChannel-Info.plist` file</summary>
@@ -208,7 +208,7 @@ You can configure this by following these steps:
 <plist version="1.0">
 <dict>
 	<key>api_base_url</key>
-	<string>https://api.sdk-sandbox.closetest.nl:16443/</string>
+	<string>https://api.sdk-sandbox.closeplatform.comw/</string>
 	<key>api_socket_url</key>
 	<string>sdk-sandbox-access-token</string>  
 </dict>
